@@ -1,10 +1,14 @@
+import { Routes, Route } from 'react-router-dom';
 import Authorization from "./pages/Authorization";
-import Messages from "./pages/Messages";
+import Chat from "./pages/Chat";
 
 function App() {
   return (
     <>
-      <Authorization />
+      <Routes>
+        <Route exact path='/' element={<Authorization />} />
+        <Route exact path='/chat' element={<Chat />} />
+      </Routes>
     </>
   );
 }
