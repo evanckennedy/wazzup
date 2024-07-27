@@ -3,6 +3,7 @@ import authBanner from '../media/auth-image-alt.webp'
 import AuthHeader from '../components/AuthHeader'
 import AuthPrompt from '../components/AuthPrompt'
 import LoginForm from '../components/LoginForm'
+import WelcomeMessage from '../components/WelcomeMessage'
 
 function Authorization() {
   return (
@@ -14,6 +15,7 @@ function Authorization() {
       </section>
       <section>
         <AuthHeader />
+        <WelcomeMessage />
         <LoginForm />
         <AuthPrompt />
       </section>
