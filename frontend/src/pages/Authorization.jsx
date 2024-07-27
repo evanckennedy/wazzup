@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import authBanner from '../media/auth-image-alt.webp'
 import AuthHeader from '../components/AuthHeader'
 import AuthPrompt from '../components/AuthPrompt'
@@ -6,6 +6,12 @@ import AuthForm from '../components/AuthForm'
 import WelcomeMessage from '../components/WelcomeMessage'
 
 function Authorization() {
+  const [isLoginDisplay, setIsLoginDisplay] = useState(true);
+
+  const toggleDisplay = () => {
+    setIsLoginDisplay(!isLoginDisplay);
+  }
+
   return (
     <div className='flex'>
       <section className='auth-banner'>
@@ -15,10 +21,9 @@ function Authorization() {
       </section>
       <section>
         <AuthHeader />
-        <WelcomeMessage />
-        <AuthForm />
-        <RegisterForm />
-        <AuthPrompt />
+        <WelcomeMessage isLoginDisplay={isLoginDisplay}/>
+        <AuthForm isLoginDisplay={isLoginDisplay}/>
+        <AuthPrompt isLoginDisplay={isLoginDisplay} toggleDisplay={toggleDisplay}/>
       </section>
     </div>
   )

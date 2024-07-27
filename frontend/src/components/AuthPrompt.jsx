@@ -1,12 +1,12 @@
 import React from 'react'
 
-function AuthPrompt({ isLoginDisplay }) {
+function AuthPrompt({ isLoginDisplay, toggleDisplay }) {
   return (
     <p>
       {isLoginDisplay ? (
-        <>Don't have an account? Sign up <a href="/signup">here</a>.</>
+        <>Don't have an account? Sign up <span onClick={toggleDisplay}>here</span>.</>
       ) : (
-        <>Already have an account? Login <a href="/login">here</a>.</>
+        <>Already have an account? Login <span onClick={toggleDisplay}>here</span>.</>
       )}
     </p>
   )
