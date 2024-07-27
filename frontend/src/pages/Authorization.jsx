@@ -2,11 +2,8 @@ import React from 'react'
 import authBanner from '../media/auth-image-alt.webp'
 import AuthHeader from '../components/AuthHeader'
 import AuthPrompt from '../components/AuthPrompt'
-
+import AuthForm from '../components/AuthForm'
 import WelcomeMessage from '../components/WelcomeMessage'
-
-import LoginForm from '../components/LoginForm'
-import RegisterForm from '../components/RegisterForm'
 
 function Authorization() {
   return (
@@ -19,7 +16,7 @@ function Authorization() {
       <section>
         <AuthHeader />
         <WelcomeMessage />
-        <LoginForm />
+        <AuthForm />
         <RegisterForm />
         <AuthPrompt />
       </section>

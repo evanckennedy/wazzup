@@ -1,8 +1,10 @@
 import React from 'react'
+import LoginForm from './LoginForm'
+import RegisterForm from './RegisterForm'
 
-function AuthForm() {
+function AuthForm({isLoginDisplay}) {
   return (
-    <div>AuthForm</div>
+    isLoginDisplay ? <LoginForm /> : <RegisterForm />
   )
 }
 
