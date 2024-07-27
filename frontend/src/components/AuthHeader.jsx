@@ -2,7 +2,7 @@ import React from 'react'
 
 function AuthHeader() {
   return (
-    <h1>Wazzup</h1>
+    <h1>WazzUp</h1>
   )
 }
 
