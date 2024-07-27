@@ -4,6 +4,7 @@ import Messages from "./pages/Messages";
 function App() {
   return (
     <>
+      <Authorization />
     </>
   );
 }
