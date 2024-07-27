@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 function RegisterForm() {
+  // State to manage name, email, and password inputs
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
