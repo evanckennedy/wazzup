@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import authBanner from '../media/auth-image-alt.webp'
+import authBanner from '../media/auth-banner-img.webp'
 import AuthHeader from '../components/AuthHeader'
 import AuthPrompt from '../components/AuthPrompt'
 import AuthForm from '../components/AuthForm'
