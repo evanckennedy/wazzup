@@ -9,7 +9,7 @@ function RegisterForm() {
 
   return (
     <form action="">
-      <label htmlFor="name">Name:</label>
+      <label htmlFor="name">Name</label>
       <input 
         type="text"
         id='name'
@@ -17,7 +17,7 @@ function RegisterForm() {
         value={name} 
         onChange={e => setName(e.target.value)}
       />
-      <label htmlFor="email">Email:</label>
+      <label htmlFor="email">Email</label>
       <input 
         type="email" 
         id='email'
@@ -25,7 +25,7 @@ function RegisterForm() {
         value={email}
         onChange={e => setEmail(e.target.value)}
       />
-      <label htmlFor="password">Password:</label>
+      <label htmlFor="password">Password</label>
       <input 
         type="password"
         id='password'
