@@ -13,7 +13,7 @@ function AuthSection() {
     setIsLoginDisplay(!isLoginDisplay);
   }
   return (
-    <section>
+    <section className='flex flex-column auth-section'>
       <AuthHeader />
       {/* Conditionally render WelcomeMessage, AuthForm, and AuthPrompt based on isLoginDisplay */}
       <WelcomeMessage isLoginDisplay={isLoginDisplay}/>

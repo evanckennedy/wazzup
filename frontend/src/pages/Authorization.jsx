@@ -4,7 +4,7 @@ import AuthSection from '../components/AuthSection';
 
 function Authorization() {
   return (
-    <div className='flex'>
+    <div className='flex authorization-container'>
       <AuthBanner />
       <AuthSection />
     </div>
