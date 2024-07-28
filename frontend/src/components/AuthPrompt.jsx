@@ -5,10 +5,10 @@ function AuthPrompt({ isLoginDisplay, toggleDisplay }) {
     <p>
       {isLoginDisplay ? (
         // Prompt to switch to register display
-        <>Don't have an account? Sign up <span onClick={toggleDisplay}>here</span>.</>
+        <>Don't have an account? Sign up <span className='display-toggle' onClick={toggleDisplay}>here</span>.</>
       ) : (
         // Prompt to switch to login display
-        <>Already have an account? Login <span onClick={toggleDisplay}>here</span>.</>
+        <>Already have an account? Login <span className='display-toggle' onClick={toggleDisplay}>here</span>.</>
       )}
     </p>
   )

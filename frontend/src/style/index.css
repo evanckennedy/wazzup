@@ -34,9 +34,9 @@
   --deep-teal: #054640;
   --forest-green: #005d4b;
   --sea-green: #06625f;
-  --light-gray: #bbbbbb;
-  --medium-gray: #aaaaaa;
-  --white: #FFF;
+  --light-gray: #bbb;
+  --medium-gray: #aaa;
+  --white: #fff;
   --checkmark-blue: #34B7F1;
   --outgoing-chat-bubble: #ECE5DD;
   --very-light-green: #dcf8c6;
@@ -52,9 +52,29 @@ body {
 }
 
 /* ============================================= */
-/* Component:        ComponentName               */
+/* Component: ComponentName                      */
 /* ============================================= */
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Page: PageName                                       */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*  Page: Authorization                                  */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* ============================================= */
+/* Component: AuthPrompt                         */
+/* ============================================= */
+.display-toggle {
+  cursor: pointer;
+  color: var(--forest-green);
+  text-decoration: underline;
+}
+/* ============================================= */
+/* Component: AuthPrompt                         */
+/* ============================================= */
+.auth-button {
+  background-color: var(--forest-green);
+  color: var(--white);
+  font-weight: 500;
+}

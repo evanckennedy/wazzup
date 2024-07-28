@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import AuthButton from './AuthButton';
 
 function RegisterForm() {
   // State to manage name, email, and password inputs
@@ -32,7 +33,7 @@ function RegisterForm() {
         value={password}
         onChange={e => setPassword(e.target.value)}
       />
-      <button type='submit'>Sign Up</button>
+      <AuthButton text='Sign Up' />
     </form>
   )
 }
