@@ -125,7 +125,7 @@ body {
   height: 100svh;
   width: 100svw;
 }
-.chat-list {
+.chat-sidebar {
   flex: 1;
   border-right: 1px solid var(--medium-gray);
 }
