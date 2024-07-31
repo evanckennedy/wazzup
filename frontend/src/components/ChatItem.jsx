@@ -5,7 +5,14 @@ function ChatItem() {
   return (
     <>
     <div className='flex justify-between'>
-      <img src="https://via.placeholder.com/128" alt="" />
+      <figure>
+        <img 
+          className='chat-item-pfp'
+          src="https://via.placeholder.com/128" 
+          alt="" 
+        />
+      </figure>
+      
       <div className='flex flex-column'>
         <div className='flex justify-between'>
           <div>Cameron</div>
