@@ -22,6 +22,10 @@
   flex-direction: column;
 }
 
+.gap-5 {
+  gap: 0.5rem;
+}
+
 .gap-10 {
   gap: 1rem;
 }

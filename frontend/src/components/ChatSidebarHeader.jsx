@@ -5,7 +5,7 @@ function ChatSidebarHeader() {
   return (
     <div className='flex justify-between'>
       <h3>Chats</h3>
-      <div className='flex gap-10'>
+      <div className='flex gap-5'>
         <FaPlus />
         <FaFilter />
       </div>

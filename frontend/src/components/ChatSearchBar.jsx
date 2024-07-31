@@ -2,7 +2,10 @@ import React from 'react'
 
 function ChatSearchBar() {
   return (
-    <div>ChatSearchBar</div>
+    <input 
+      type="text" 
+    />
+    
   )
 }
 
