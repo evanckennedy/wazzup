@@ -1,11 +1,12 @@
 import React from 'react'
 import ChatSidebar from '../components/ChatSidebar'
+import ChatWindow from '../components/ChatWindow'
 
 function Chat() {
   return (
     <div className='chat-container flex'>
-      <ChatList />
       <ChatSidebar />
+      <ChatWindow />
     </div>
   )
 }

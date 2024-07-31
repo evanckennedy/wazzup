@@ -4,7 +4,7 @@ import ChatItem from './ChatItem'
 function ChatList() {
   return (
     <div>
-      chatlist
+      <ChatItem />
     </div>
     /* overflow-y: auto for this section */
   )
