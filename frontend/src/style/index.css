@@ -142,3 +142,20 @@ body {
 /* ============================================= */
 /* Component: ChatWindow                         */
 /* ============================================= */
+/* ============================================= */
+/* Component: ChatSearchBar                      */
+/* ============================================= */
+.chat-search-bar-container{
+  width: 100%;
+  position: relative;
+  height: 4rem;
+}
+.chat-search-input {
+  width: 100%;
+  height: 100%;
+  padding: 0 1rem 0 3rem;
+}
+.search-icon{
+  position: absolute;
+  left: 0.5rem;
+}
