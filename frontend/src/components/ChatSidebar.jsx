@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import ChatList from './ChatList'
 import ChatSearchBar from './ChatSearchBar'
 import ChatSidebarHeader from './ChatSidebarHeader'
