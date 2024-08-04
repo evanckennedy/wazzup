@@ -3,7 +3,7 @@ import { FaPlus, FaFilter } from 'react-icons/fa';
 
 function ChatSidebarHeader() {
   return (
-    <div className='flex justify-between'>
+    <div className='sidebar-header-container flex justify-between'>
       <h3>Chats</h3>
       <div className='flex gap-5'>
         <FaPlus />

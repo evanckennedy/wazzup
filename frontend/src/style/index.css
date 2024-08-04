@@ -134,6 +134,12 @@ body {
   flex: 3;
 }
 /* ============================================= */
+/* Component: ChatSidebarHeader                  */
+/* ============================================= */
+.sidebar-header-container {
+  align-items: center;
+}
+/* ============================================= */
 /* Component: ChatSearchBar                      */
 /* ============================================= */
 .chat-search-bar-container{
@@ -172,7 +178,8 @@ body {
 /* Component: ChatDetailHeader                   */
 /* ============================================= */
 .chat-detail-header-container{
-  width: 100;
+  width: 100%;
+  align-items: center;
 }
 /* ============================================= */
 /* Component: ChatDetailInput                    */
