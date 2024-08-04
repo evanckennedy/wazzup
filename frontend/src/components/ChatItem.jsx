@@ -2,6 +2,8 @@ import React from 'react'
 import { FaCheck } from 'react-icons/fa';
 
 function ChatItem({chat}) {
+  const lastMessage = chat.messages[chat.messages.length - 1];
+
   return (
     <>
     <div className='flex justify-between'>
@@ -15,14 +17,14 @@ function ChatItem({chat}) {
       <div className='flex flex-column'>
         <div className='flex justify-between'>
           <div>{chat.name}</div>
-          <p>{chat.lastMessageTime || '7:54 PM'}</p>
+          <p>{lastMessage?.time || 'N/A'}</p>
         </div>
         <div className='flex gap-5'>
           <FaCheck />
           <p>
-            <span>{chat.lastMessageSender || 'You'}</span>
+            <span>{lastMessage?.sender || 'N/A'}</span>
             :
-            <span>{chat.lastMessage}</span>
+            <span>{lastMessage?.text || 'No messages'}</span>
           </p>
         </div>
       </div>
