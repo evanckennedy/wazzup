@@ -3,12 +3,11 @@ import ChatItem from './ChatItem'
 
 function ChatList({chats}) {
   return (
-    <div>
+    <div className='chat-list-container'>
       {chats.map((chat) => (
         <ChatItem key={chat.id} chat={chat} />
       ))}
     </div>
-    /* overflow-y: auto for this section */
   )
 }
 
