@@ -170,6 +170,15 @@ body {
 .chat-item-pfp{
   height: 4rem;
   border-radius: 50%;
+  margin-right: 2rem;
+}
+.item-info-container{
+  width: 100%;
+}
+.chat-item-message{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 /* ============================================= */
 /* Component: DefaultChatView                    */
