@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { FaSearch } from 'react-icons/fa';
+import { AiOutlineSearch } from 'react-icons/ai';
+
 
 function ChatSearchBar() {
   const [searchText, setSearchText] = useState("");
   return (
     <div className='chat-search-bar-container'>
-      <FaSearch className='search-icon'/>
+      <AiOutlineSearch className='search-icon'/>
       <input 
         className='chat-search-input'
         type="text"

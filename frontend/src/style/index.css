@@ -155,6 +155,7 @@ body {
 .search-icon{
   position: absolute;
   left: 0.5rem;
+  top: 1.2rem;
 }
 /* ============================================= */
 /* Component: ChatItem                           */
