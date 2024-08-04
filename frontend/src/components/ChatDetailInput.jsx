@@ -15,8 +15,8 @@ function ChatDetailInput() {
         value={message}
         onChange={e => setMessage(e.target.value)}
       />
-      <AiOutlineAudio className='input-icon'/>
-      {/* <AiOutlineSend /> */}
+      {/* Conditionally render the send icon if message has a value */}
+      {message ? <AiOutlineSend className='input-icon'/> : <AiOutlineAudio className='input-icon'/> }
     </div>
   )
 }
