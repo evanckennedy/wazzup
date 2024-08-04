@@ -6,7 +6,9 @@ import ChatDetailInput from './ChatDetailInput'
 function ChatDetail() {
   return (
     <div>
-      ChatDetail
+      <ChatDetailHeader />
+      <ChatDetailMessages />
+      <ChatDetailInput />
     </div>
   )
 }

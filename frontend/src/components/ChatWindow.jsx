@@ -4,7 +4,10 @@ import ChatDetail from './ChatDetail'
 
 function ChatWindow() {
   return (
-    <div className='chat-window'>ChatWindow</div>
+    <div className='chat-window'>
+      <ChatDetail />
+      {/* <DefaultChatView /> */}
+    </div>
   )
 }
 
