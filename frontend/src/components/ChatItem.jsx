@@ -17,14 +17,14 @@ function ChatItem({chat}) {
       <div className='flex flex-column'>
         <div className='flex justify-between'>
           <div>{chat.name}</div>
-          <p>{lastMessage?.time || 'N/A'}</p>
+          <p>{lastMessage.time || 'N/A'}</p>
         </div>
         <div className='flex gap-5'>
           <FaCheck />
           <p>
-            <span>{lastMessage?.sender || 'N/A'}</span>
+            <span>{lastMessage.sender || 'N/A'}</span>
             :
-            <span>{lastMessage?.text || 'No messages'}</span>
+            <span>{lastMessage.text || 'No messages'}</span>
           </p>
         </div>
       </div>
