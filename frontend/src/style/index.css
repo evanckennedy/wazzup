@@ -44,6 +44,7 @@
   --sea-green: #06625f;
   --light-gray: #bbb;
   --medium-gray: #aaa;
+  --dark-gray: #333333;
   --white: #fff;
   --checkmark-blue: #34B7F1;
   --outgoing-chat-bubble: #ECE5DD;
@@ -115,6 +116,17 @@ body {
 }
 .auth-banner-img {
   width: 300px;
+}
+/* ============================================= */
+/* Component: LoginForm                          */
+/* ============================================= */
+.auth-input{
+  border: 1px solid var(--light-gray);
+  border-radius: 0.5rem;
+  padding: 0.7rem 1rem;
+}
+.auth-label{
+  color: var(--dark-gray);
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
