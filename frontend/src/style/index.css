@@ -54,6 +54,7 @@
   --outgoing-chat-bubble: #ECE5DD;
   --light-green: #dcf8c6;
   --very-light-green: #ecf8e3;
+  --error-red: #df0404;
 }
 
 body {
@@ -143,6 +144,19 @@ body {
 }
 .auth-form{
   width: 100%;
+}
+/* ============================================= */
+/* Component: RegisterForm                       */
+/* ============================================= */
+.error-message{
+  color: var(--error-red);
+  font-size: 1.4rem;
+  line-height: 1;
+}
+.error-message-container{
+  min-height: 1.7rem;
+  display: flex;
+  align-items: flex-start; /* Align items to the top */
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
