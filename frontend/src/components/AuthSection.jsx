@@ -5,7 +5,7 @@ import AuthPrompt from './AuthPrompt';
 
 function AuthSection({isLoginDisplay, toggleDisplay}) {
   return (
-    <section className='flex flex-column auth-section'>
+    <section className='flex flex-column auth-section gap-20'>
       <AuthHeader />
       {/* Conditionally render WelcomeMessage, AuthForm, and AuthPrompt based on isLoginDisplay */}
       <AuthForm isLoginDisplay={isLoginDisplay} />
