@@ -30,6 +30,10 @@
   gap: 1rem;
 }
 
+.gap-15 {
+  gap: 1.5rem;
+}
+
 .gap-20 {
   gap: 2rem;
 }
@@ -96,6 +100,9 @@ body {
   background-color: var(--forest-green);
   color: var(--white);
   font-weight: 500;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
 }
 /* ============================================= */
 /* Component: AuthBanner                         */
@@ -105,7 +112,7 @@ body {
   height: 100%;
   align-items: center;
   justify-content: center;
-  padding: 2rem 10rem;
+  padding: 2rem 12rem;
 }
 .auth-banner {
   background-color: var(--very-light-green);
@@ -133,6 +140,9 @@ body {
 }
 .auth-label{
   color: var(--dark-gray);
+}
+.auth-form{
+  width: 100%;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */

@@ -8,7 +8,7 @@ function RegisterForm() {
   const [name, setName] = useState('');
 
   return (
-    <form action="" className='flex flex-column gap-10'>
+    <form action="" className='flex flex-column gap-15 auth-form'>
       <div className='flex flex-column'>
         <label htmlFor="name" className='auth-label'>Name</label>
         <input 
