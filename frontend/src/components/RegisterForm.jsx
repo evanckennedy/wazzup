@@ -11,6 +11,7 @@ function RegisterForm() {
   // validation function
   const validate = () => {
     const newErrors = {};
+    
     if (!name) newErrors.name = 'Name is required';
 
     if (!email) newErrors.email = 'Email is required';
