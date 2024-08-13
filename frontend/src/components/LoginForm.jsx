@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import AuthButton from './AuthButton';
+import { validate } from '../utils/validation'
 
 function LoginForm() {
   // State to manage email and password inputs
@@ -7,22 +8,11 @@ function LoginForm() {
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
 
-  // validate function
-  const validate = () => {
-    const newErrors = {};
-
-    if (!email) newErrors.email = 'Email is required';
-    else if (!/\S+@\S+\.\S+/.test(email)) newErrors.email = 'Email is invalid';
-
-    if (!password) newErrors.password = 'Password is required';
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  }
-
   const handleSumbit = e => {
     e.preventDefault();
-    if (validate()) {
+    const newErrors = validate({email, password});
+    setErrors(newErrors);
+    if (Object.keys(newErrors).length === 0) {
       // submit form
       console.log('Form submitted');
     }
