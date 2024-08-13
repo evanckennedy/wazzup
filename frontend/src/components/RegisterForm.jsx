@@ -12,6 +12,7 @@ function RegisterForm() {
   // Handle form submission: validate inputs and set errors if any
   const handleSubmit = e => {
     e.preventDefault();
+    setErrors({}); // Reset errors before validation
     const newErrors = validate({ name, email, password });
     setErrors(newErrors);
     if (Object.keys(newErrors).length === 0) {

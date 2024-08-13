@@ -9,8 +9,9 @@ function LoginForm() {
   const [errors, setErrors] = useState({});
 
   // Handle form submission: validate inputs and set errors if any
-  const handleSumbit = e => {
+  const handleSubmit = e => {
     e.preventDefault();
+    setErrors({}); // Reset errors before validation
     const newErrors = validate({email, password});
     setErrors(newErrors);
     if (Object.keys(newErrors).length === 0) {
@@ -20,7 +21,7 @@ function LoginForm() {
   }
 
   return (
-    <form action="" className='flex flex-column auth-form' onSubmit={handleSumbit}>
+    <form action="" className='flex flex-column auth-form' onSubmit={handleSubmit}>
       <div className='flex flex-column'>
         <label htmlFor="email" className='auth-label'>Email</label>
         <input 
