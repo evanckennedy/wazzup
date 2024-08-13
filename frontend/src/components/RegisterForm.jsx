@@ -9,6 +9,7 @@ function RegisterForm() {
   const [name, setName] = useState('');
   const [errors, setErrors] = useState({});
 
+  // Handle form submission: validate inputs and set errors if any
   const handleSubmit = e => {
     e.preventDefault();
     const newErrors = validate({ name, email, password });

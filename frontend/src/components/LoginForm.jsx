@@ -8,6 +8,7 @@ function LoginForm() {
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
 
+  // Handle form submission: validate inputs and set errors if any
   const handleSumbit = e => {
     e.preventDefault();
     const newErrors = validate({email, password});
