@@ -24,11 +24,13 @@ export const validate = (fields) => {
 
   if (!fields.email) {
     errors.email = 'Email is required';
-  } else if (!/\S+@\S+\.\S+/.test(fields.email)) {
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email)) {
     errors.email = 'Email is invalid';
   }
 
   if (!fields.password) errors.password = 'Password is required';
+
+  console.log('Validation errors:', errors); // Debugging line
 
   return errors;
 }

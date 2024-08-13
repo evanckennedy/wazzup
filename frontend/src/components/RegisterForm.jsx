@@ -15,6 +15,7 @@ function RegisterForm() {
     setErrors({}); // Reset errors before validation
     const newErrors = validate({ name, email, password });
     setErrors(newErrors);
+    console.log('Form submitted with:', { name, email, password }); // Debugging line
     if (Object.keys(newErrors).length === 0) {
       // submit form
       console.log('Form submitted');
@@ -22,7 +23,7 @@ function RegisterForm() {
   }
 
   return (
-    <form action="" className='flex flex-column auth-form' onSubmit={handleSubmit}>
+    <form action="" className='flex flex-column auth-form' noValidate onSubmit={handleSubmit}>
       <div className='flex flex-column'>
         <label htmlFor="name" className='auth-label'>Name</label>
         <input 
