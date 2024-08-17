@@ -3,8 +3,8 @@ import AuthButton from './AuthButton';
 import { validate } from '../utils/validation';
 
 function RegisterForm() {
-  // State to manage name, email, and password inputs
-  const [email, setEmail] = useState('');
+  // State to manage name, username, and password inputs
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [errors, setErrors] = useState({});
@@ -13,9 +13,9 @@ function RegisterForm() {
   const handleSubmit = e => {
     e.preventDefault();
     setErrors({}); // Reset errors before validation
-    const newErrors = validate({ name, email, password });
+    const newErrors = validate({ name, username, password });
     setErrors(newErrors);
-    console.log('Form submitted with:', { name, email, password }); // Debugging line
+    console.log('Form submitted with:', { name, username, password }); // Debugging line
     if (Object.keys(newErrors).length === 0) {
       // submit form
       console.log('Form submitted');
@@ -39,17 +39,17 @@ function RegisterForm() {
         </div>
       </div>
       <div className='flex flex-column'>
-        <label htmlFor="email" className='auth-label'>Email</label>
+        <label htmlFor="username" className='auth-label'>Username</label>
         <input 
-          type="email" 
-          id='email'
+          type="text" 
+          id='username'
           className='auth-input'
-          placeholder='Enter your email'
-          value={email}
-          onChange={e => setEmail(e.target.value)}
+          placeholder='Enter your username'
+          value={username}
+          onChange={e => setUsername(e.target.value)}
         />
         <div className="error-message-container">
-          {errors.email && <span className='error-message'>{errors.email}</span>}
+          {errors.username && <span className='error-message'>{errors.username}</span>}
         </div>
       </div>
       <div className='flex flex-column'>
