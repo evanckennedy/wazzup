@@ -11,6 +11,11 @@ const messageSchema = new mongoose.Schema({
     ref: 'User',
     required: true,
   },
+  receiverId: { 
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
   content: String,
   timestamp: {
     type: Date,
