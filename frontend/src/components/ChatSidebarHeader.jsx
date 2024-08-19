@@ -1,10 +1,20 @@
 import React from 'react'
 
-function ChatSidebarHeader() {
+function ChatSidebarHeader({selectedTab, handleTabClick}) {
   return (
     <div className='sidebar-header-container flex justify-between'>
-      <h3>Chats</h3>
-      <h3>Contacts</h3>
+      <button
+        className={selectedTab === 'chats' ? 'active' : ''}
+        onClick={() => handleTabClick('chats')}
+      >
+        Chats
+      </button>
+      <button
+        className={selectedTab === 'contacts' ? 'active' : ''}
+        onClick={() => handleTabClick('contacts')}
+      >
+        Contacts
+      </button>
     </div>
   )
 }

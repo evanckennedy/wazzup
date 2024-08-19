@@ -183,6 +183,17 @@ body {
 /* ============================================= */
 .sidebar-header-container {
   align-items: center;
+
+  button {
+    background-color: transparent;
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
+  .active {
+    color: var(--sea-green);
+    text-decoration: underline;
+  }
 }
 /* ============================================= */
 /* Component: ChatList                           */
