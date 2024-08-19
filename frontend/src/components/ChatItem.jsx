@@ -20,7 +20,6 @@ function ChatItem({chat}) {
           <p>{lastMessage.time || 'N/A'}</p>
         </div>
         <div className='flex gap-5'>
-          <FaCheck />
           <p className='chat-item-message'>
             <span>{lastMessage.sender || 'N/A'}</span>
             :
