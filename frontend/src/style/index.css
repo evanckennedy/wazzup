@@ -216,18 +216,6 @@ body {
 /* ============================================= */
 /* Component: ChatItem                           */
 /* ============================================= */
-.chat-item-pfp-wrapper {
-  width: 5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.chat-item-pfp{
-/*   width: 4rem; */
-  height: 4rem;
-  border-radius: 50%;
-  object-fit: cover; /* Ensure the image scales correctly */
-}
 .item-info-container{
   width: 100%;
 }
