@@ -48,6 +48,7 @@
   --sea-green: #06625f;
   --light-gray: #bbb;
   --medium-gray: #aaa;
+  --mid-dark-gray: #777;
   --dark-gray: #333333;
   --white: #fff;
   --checkmark-blue: #34B7F1;
@@ -207,6 +208,10 @@ body {
 .chat-list-container{
   height: 100%;
   overflow-y: auto;
+
+  > * {
+    margin-bottom: 1rem;
+  }
 }
 /* ============================================= */
 /* Component: ChatItem                           */
@@ -227,11 +232,25 @@ body {
   width: 100%;
 }
 .chat-item-message{
+  color: var(--mid-dark-gray);
+  font-weight: 500;
+  line-height: 1.2;
+  font-size: 1.4rem;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.chat-item-name{
+  font-weight: 600;
+}
+.chat-item-time{
+  color: var(--mid-dark-gray);
+}
+.name-title-wrapper{
+  line-height: 1.2;
+  font-size: 1.4rem;
 }
 /* ============================================= */
 /* Component: DefaultChatView                    */

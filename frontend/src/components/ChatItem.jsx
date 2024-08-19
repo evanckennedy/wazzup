@@ -15,9 +15,9 @@ function ChatItem({chat}) {
         />
       </figure>
       <div className='item-info-container flex flex-column'>
-        <div className='flex justify-between'>
-          <div>{chat.name}</div>
-          <p>{lastMessage.time || 'N/A'}</p>
+        <div className='name-title-wrapper flex justify-between'>
+          <p className='chat-item-name'>{chat.name}</p>
+          <p className='chat-item-time'>{lastMessage.time || 'N/A'}</p>
         </div>
         <div className='flex gap-5'>
           <p className='chat-item-message'>
