@@ -6,8 +6,8 @@ function ChatItem({chat}) {
 
   return (
     <>
-    <div className='flex'>
-      <figure>
+    <div className='flex gap-10'>
+      <figure className='chat-item-pfp-wrapper'>
         <img 
           className='chat-item-pfp'
           src={chat.avatar || 'https://via.placeholder.com/128'}
