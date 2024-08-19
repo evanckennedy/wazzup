@@ -1,8 +1,13 @@
 import React from 'react'
+import ContactItem from './ContactItem'
 
 function ContactList({contacts}) {
   return (
-    <div>ContactList</div>
+    <ul>
+      {contacts.map(contact => (
+        <ContactItem key={contact.contactId} contact={contact}/>
+      ))}
+    </ul>
   )
 }
 

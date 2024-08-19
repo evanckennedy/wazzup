@@ -2,11 +2,12 @@ import React from 'react'
 import ChatSidebar from '../components/ChatSidebar'
 import ChatWindow from '../components/ChatWindow'
 import chats from '../mock-data/chats'
+import contacts from '../mock-data/contacts'
 
 function Chat() {
   return (
     <div className='chat-container flex'>
-      <ChatSidebar chats={chats} />
+      <ChatSidebar chats={chats} contacts={contacts}/>
       <ChatWindow />
     </div>
   )
