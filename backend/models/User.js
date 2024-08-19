@@ -17,7 +17,6 @@ const userSchema = new mongoose.Schema({
   contacts: [{ 
     type: mongoose.Schema.Types.ObjectId, ref: 'Contact' 
   }],
-  profilePicture: String,
   createdAt: {
     type: Date,
     immutable: true,
