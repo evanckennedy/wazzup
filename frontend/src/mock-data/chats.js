@@ -179,6 +179,91 @@ const chats = [
         time: "Yesterday"
       }
     ]
+  },
+  {
+    id: 9,
+    name: "Alice Johnson",
+    avatar: "https://via.placeholder.com/128",
+    messages: [
+      {
+        sender: "Alice Johnson",
+        text: "Are we still on for the meeting tomorrow?",
+        time: "10:15 AM"
+      },
+      {
+        sender: "You",
+        text: "Yes, see you at 10 AM.",
+        time: "10:16 AM"
+      }
+    ]
+  },
+  {
+    id: 10,
+    name: "Bob Smith",
+    avatar: "https://via.placeholder.com/128",
+    messages: [
+      {
+        sender: "Bob Smith",
+        text: "Can you review the document I sent?",
+        time: "11:30 AM"
+      },
+      {
+        sender: "You",
+        text: "Sure, I'll take a look this afternoon.",
+        time: "11:32 AM"
+      }
+    ]
+  },
+  {
+    id: 11,
+    name: "Charlie Brown",
+    avatar: "https://via.placeholder.com/128",
+    messages: [
+      {
+        sender: "Charlie Brown",
+        text: "Don't forget about the team lunch tomorrow.",
+        time: "12:45 PM"
+      },
+      {
+        sender: "You",
+        text: "Got it, thanks for the reminder!",
+        time: "12:46 PM"
+      }
+    ]
+  },
+  {
+    id: 12,
+    name: "Diana Prince",
+    avatar: "https://via.placeholder.com/128",
+    messages: [
+      {
+        sender: "Diana Prince",
+        text: "Can we reschedule our meeting?",
+        time: "2:00 PM"
+      },
+      {
+        sender: "You",
+        text: "Sure, how about Thursday?",
+        time: "2:02 PM"
+      }
+    ]
+  },
+  {
+    id: 13,
+    name: "Eve Adams",
+    avatar: "https://via.placeholder.com/128",
+    messages: [
+      {
+        sender: "Eve Adams",
+        text: "The presentation was great!",
+        time: "3:15 PM"
+      },
+      {
+        sender: "You",
+        text: "Thank you!",
+        time: "3:16 PM"
+      }
+    ]
   }
 ];
 
