@@ -1,14 +1,20 @@
 import React from 'react'
-import { FaPlus, FaFilter } from 'react-icons/fa';
 
-function ChatSidebarHeader() {
+function ChatSidebarHeader({selectedTab, handleTabClick}) {
   return (
     <div className='sidebar-header-container flex justify-between'>
-      <h3>Chats</h3>
-      <div className='flex gap-5'>
-        <FaPlus />
-        <FaFilter />
-      </div>
+      <button
+        className={selectedTab === 'chats' ? 'active' : ''}
+        onClick={() => handleTabClick('chats')}
+      >
+        Chats
+      </button>
+      <button
+        className={selectedTab === 'contacts' ? 'active' : ''}
+        onClick={() => handleTabClick('contacts')}
+      >
+        Contacts
+      </button>
     </div>
   )
 }

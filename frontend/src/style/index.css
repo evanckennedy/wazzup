@@ -48,6 +48,7 @@
   --sea-green: #06625f;
   --light-gray: #bbb;
   --medium-gray: #aaa;
+  --mid-dark-gray: #777;
   --dark-gray: #333333;
   --white: #fff;
   --checkmark-blue: #34B7F1;
@@ -182,24 +183,17 @@ body {
 /* ============================================= */
 .sidebar-header-container {
   align-items: center;
-}
-/* ============================================= */
-/* Component: ChatSearchBar                      */
-/* ============================================= */
-.chat-search-bar-container{
-  width: 100%;
-  position: relative;
-  height: 4rem;
-}
-.chat-search-input {
-  width: 100%;
-  height: 100%;
-  padding: 0 1rem 0 3rem;
-}
-.search-icon{
-  position: absolute;
-  left: 0.5rem;
-  top: 1.2rem;
+
+  button {
+    background-color: transparent;
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
+  .active {
+    color: var(--sea-green);
+    text-decoration: underline;
+  }
 }
 /* ============================================= */
 /* Component: ChatList                           */
@@ -207,29 +201,37 @@ body {
 .chat-list-container{
   height: 100%;
   overflow-y: auto;
+
+  > * {
+    margin-bottom: 1rem;
+  }
 }
 /* ============================================= */
 /* Component: ChatItem                           */
 /* ============================================= */
-.chat-item-pfp-wrapper {
-  width: 5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.chat-item-pfp{
-/*   width: 4rem; */
-  height: 4rem;
-  border-radius: 50%;
-  object-fit: cover; /* Ensure the image scales correctly */
-}
 .item-info-container{
   width: 100%;
 }
 .chat-item-message{
-  white-space: nowrap;
+  color: var(--mid-dark-gray);
+  font-weight: 500;
+  line-height: 1.2;
+  font-size: 1.4rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.chat-item-name{
+  font-weight: 600;
+}
+.chat-item-time{
+  color: var(--mid-dark-gray);
+}
+.name-title-wrapper{
+  line-height: 1.2;
+  font-size: 1.4rem;
 }
 /* ============================================= */
 /* Component: DefaultChatView                    */
