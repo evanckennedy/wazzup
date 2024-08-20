@@ -1,4 +1,4 @@
-import { createUser } from "../services/userService"
+import { createUser } from "../services/userService.js"
 
 // Handles user creation request: extracts user data, calls CreateUser, and returns success/error response
 export async function handleCreateUser(req, res) {
