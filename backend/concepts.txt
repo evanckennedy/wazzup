@@ -1,3 +1,6 @@
+Technolgies used:
+node.js, express, mongodb, mongoose, api endpoints, postman
+
 Schema: Defines the structure of the documents within a collection, including field names, types, and validation rules.
   - Analogy: Blueprint or design of a house
 
