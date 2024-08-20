@@ -11,6 +11,7 @@ export async function handleCreateUser(req, res) {
     res.status(201).send('User created successfully')
   } catch (error) {
     // Setting the HTTP response status to 500 (Internal Server Error) and sending an error message
+    console.error('Error creating user:', error)
     res.status(500).send('Error creating user')
   }
 }

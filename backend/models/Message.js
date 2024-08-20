@@ -19,7 +19,7 @@ const messageSchema = new mongoose.Schema({
   message: String,
   timestamp: {
     type: Date,
-    default: () => Date.now,
+    default: () => Date.now(),
   },
   status: {
     type: String,
