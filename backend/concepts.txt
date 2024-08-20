@@ -1,0 +1,26 @@
+Controller: 
+- Handles incoming HTTP requests, that is, processes them and returns HTTP responses
+- Acts as an intermediary between the client and the application logic
+- Controllers often:
+  - Parse request data.
+  - Call the appropriate service functions.
+  - Handle HTTP response codes and messages.
+  - Manage session and authentication.
+
+Service:
+- Business logic of the application
+- Performs operations such as data manipulation, validation, and interaction
+  the database
+- Typically called by the controller to carry out tasks
+
+JSDoc comments:
+- A type of comment used to document JavaScript code
+- Markup language used to annotate JavaScript code with documentation comments
+- Can be parsed by tools to generate documentation.
+- Brief guide of JSDoc syntax:
+  - Start with /** to begin a JSDoc comment block.
+  - Use @ followed by a tag (like file, module, typedef, property, etc.) to 
+    specify the type of documentation.
+  - Write a brief description of the documented code.
+  - Use {} to specify types, like {string} or {mongoose.Schema.Types.ObjectId}.
+  - Close the comment block with */.
