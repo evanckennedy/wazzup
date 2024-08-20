@@ -54,3 +54,8 @@ userSchema.pre('save', async function (next) {
   // Continue to the next middleware function 
   next();
 })
+
+// Creates a Mongoose model for User.
+const User = mongoose.model('User', userSchema);
+
+export default User;
