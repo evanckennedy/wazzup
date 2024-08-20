@@ -42,3 +42,9 @@ HTTP status code categories:
     Request invalid or cannot be processed (e.g., 400 Bad Request, 401 Unauthorized, 404 Not Found)
   5xx - Server Error
     Server failed to process request (e.g., 500 Internal Server Error, 502 Bad Gateway)
+
+API Endpoint:
+  - A specific URL (route) that handles a specific request or action
+  - A point of interaction between a client (e.g., web app, mobile app) and a server
+  - Defines a specific operation, such as creating, reading, updating, or deleting data
+  - Typically responds with data in a format like JSON or XML
