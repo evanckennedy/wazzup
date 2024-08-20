@@ -48,3 +48,15 @@ API Endpoint:
   - A point of interaction between a client (e.g., web app, mobile app) and a server
   - Defines a specific operation, such as creating, reading, updating, or deleting data
   - Typically responds with data in a format like JSON or XML
+
+JSON Web Tokens:
+  - The token acts as a proof of authentication, allowing the user to access 
+    protected routes and resources without needing to re-enter their credentials. 
+    Think of it like a temporary "access pass" that's valid for a certain period
+  - Here's a simple analogy:
+    - Username and password are like a key and lock.
+    - The token is like a temporary access card that's given to the user after 
+      they unlock the door (authenticate).
+    - The access card (token) allows the user to enter the building (access 
+      protected resources) without needing to use the key and lock (re-enter 
+      credentials) every time.
