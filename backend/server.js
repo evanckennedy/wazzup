@@ -1,5 +1,6 @@
 import connectDB from "./config/database.js";
 import express from 'express';
+import userRoutes from './routes/userRoutes.js'
 
 // Create an instance of an Express application
 const app = express();
@@ -11,6 +12,9 @@ connectDB();
 
 // Middleware to parse JSON bodies
 app.use(express.json());
+
+// Use the user routes under the /api path
+app.use('/api', userRoutes);
 
 // Define a simple route
 app.get('/', (req, res) => {
