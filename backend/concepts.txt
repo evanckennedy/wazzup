@@ -1,3 +1,9 @@
+Schema: Defines the structure of the documents within a collection, including field names, types, and validation rules.
+  - Analogy: Blueprint or design of a house
+
+Model: A higher-level abstraction that provides an interface to interact with the database. It is created using a schema and includes methods for querying and manipulating the data.
+  - Analogy: The actual house build from the blueprint, which you can live in and interact with
+
 Controller: 
 - Handles incoming HTTP requests, that is, processes them and returns HTTP responses
 - Acts as an intermediary between the client and the application logic
@@ -24,3 +30,15 @@ JSDoc comments:
   - Write a brief description of the documented code.
   - Use {} to specify types, like {string} or {mongoose.Schema.Types.ObjectId}.
   - Close the comment block with */.
+
+HTTP status code categories:
+  1xx - Informational
+    Request received, processing ongoing (e.g., 100 Continue)
+  2xx - Success
+    Request successful, resource created or retrieved (e.g., 200 OK, 201 Created)
+  3xx - Redirection
+    Request redirected to another URL (e.g., 301 Moved Permanently, 302 Found)
+  4xx - Client Error
+    Request invalid or cannot be processed (e.g., 400 Bad Request, 401 Unauthorized, 404 Not Found)
+  5xx - Server Error
+    Server failed to process request (e.g., 500 Internal Server Error, 502 Bad Gateway)
