@@ -32,7 +32,8 @@ const userSchema = new mongoose.Schema({
     required: true,
   },
   contacts: [{ 
-    type: mongoose.Schema.Types.ObjectId, ref: 'Contact' 
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'Contact' 
   }],
   createdAt: {
     type: Date,
