@@ -30,3 +30,13 @@ export async function handleLogin(req, res) {
     res.status(400).send('Invalid username or password');
   }
 }
+
+// Controller function to get user details
+export async function handleGetUserDetails(req, res) {
+  try {
+    // use service function to get user by id
+    // if there isnt a user, return a message saying there's no user found
+  } catch (error) {
+    // if there's a server error return it
+  }
+}
