@@ -22,3 +22,8 @@ const contactSchema = new mongoose.Schema({
     default: () => Date.now(),
   },
 })
+
+// Create the Contact model using the contactSchema
+const Contact = mongoose.model('Contact', contactSchema);
+
+export default Contact
