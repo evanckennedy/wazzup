@@ -4,12 +4,12 @@ import jwt from 'jsonwebtoken'
 
 // Creates a new user document in the database with the provided name, username, and password
 export async function createUser(name, username, password) {
-  const user = new User({
+  const newUser = new User({
     name,
     username,
     password
   })
-  await user.save()
+  await newUser.save()
 }
 
 /*
