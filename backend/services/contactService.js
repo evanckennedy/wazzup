@@ -1,4 +1,5 @@
 import Contact from '../models/Contact.js'
+import User from '../models/User.js';
 import jwt from 'jsonwebtoken'
 import dotenv from "dotenv";
 
@@ -22,6 +23,14 @@ export async function createContact(token, contactId, nickname) {
   });
 
   await newContact.save();
+
+  // Update the user's contacts array 
+  // findByIdAndUpdate() method is a built-in mongoose method
+  await User.findByIdAndUpdate(userId, {
+    // add the contact ID to the user's contact array
+    $push: { contacts: newContact._id }
+  })
+
   return newContact
 }
 
