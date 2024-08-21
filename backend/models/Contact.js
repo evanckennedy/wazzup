@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-// This is the contact schema for the backend application.
+// Contact schema
 /**
  * @typedef {Object} ContactSchema
  * @property {mongoose.Schema.Types.ObjectId} userId - The ID of the user who has the contact.
