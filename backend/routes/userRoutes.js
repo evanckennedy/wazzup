@@ -1,5 +1,5 @@
 import express from 'express';
-import { handleCreateUser, handleLogin } from '../controllers/userController.js';
+import { handleCreateUser, handleLogin, handleGetUserDetails } from '../controllers/userController.js';
 
 // Create a new router instance using the Express.js Router class
 const router = express.Router(); 
@@ -9,5 +9,8 @@ router.post('/users', handleCreateUser);
 
 // Define a POST route for logging in, handled by the handleLogin function
 router.post('/users/login', handleLogin);
+
+// Define a GET route for fetching a user, handles by the handleGetUserDetails function
+router.get('/users/:id', handleGetUserDetails);
 
 export default router;
