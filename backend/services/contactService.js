@@ -15,9 +15,6 @@ export async function createContact(token, contactId, nickname) {
   // Extract the user ID from the decoded JWT payload
   const userId = decoded.id;
 
-  // Debugging line to log the user ID to the console
-  console.log(`userId is: ${userId}`)
-
   const newContact = new Contact({
     userId,
     contactId,
