@@ -31,3 +31,14 @@ export async function authenticateUser(username, password) {
   const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '7d' })
   return token;
 }
+
+// Service function to get user by ID
+export async function getUserById(id) {
+  try {
+    // get the user by id but exclude password
+    const user = await User.findById(id).select('-password');
+    return user;
+  } catch (error) {
+    throw new Error('Error fetching user details');
+  }
+}
