@@ -22,6 +22,8 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
+    minlength: 3,
+    maxlength: 30,
   },
   name: {
     type: String,
@@ -30,6 +32,7 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
+    minlength: 6,
   },
   contacts: [{ 
     type: mongoose.Schema.Types.ObjectId, 

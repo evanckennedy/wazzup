@@ -29,7 +29,12 @@ export const validate = (fields) => {
     errors.username = 'Invalid username';
   }
 
-  if (!fields.password) errors.password = 'Password is required';
+  if (!fields.password) {
+    errors.password = 'Password is required';
+  } 
+  else if (fields.password.length < 6) {
+    errors.password = 'Password must be at least 6 characters'
+  }
 
   console.log('Validation errors:', errors); // Debugging line
 
