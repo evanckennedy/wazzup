@@ -39,6 +39,7 @@ export async function handleGetUserDetails(req, res) {
       // Return a 404 Not Found response if the user is not found
       return res.status(404).json({ message: 'User not found' })
     }
+    res.json(user);
   } catch (error) {
     // Log the error to the console for debugging purposes
     console.error('Error getting user', error);
