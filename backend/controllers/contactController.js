@@ -41,6 +41,9 @@ export async function handleGetContacts(req, res) {
     res.status(200).json(contacts);
   } catch (error) {
     console.error('Error getting contacts:', error)
+    if (error.message === 'User not found') {
+      return res.status(404).json({ message: 'User not found' });
+    }
     res.status(500).json({ message: 'Internal Server Error '})
   }
 }
