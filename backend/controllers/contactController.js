@@ -1,5 +1,6 @@
 import { createContact, getContacts } from "../services/contactService.js";
 import dotenv from "dotenv";
+import jwt from 'jsonwebtoken'
 
 // Load environment variables from .env file
 dotenv.config();
@@ -31,7 +32,7 @@ export async function handleGetContacts(req, res) {
     const decoded = jwt.verify(token, jwtSecret)
 
     // console.log for testing
-    console.log(decoded)
+    // console.log(decoded)
 
     // Extract the user ID from the decoded token
     const userId = decoded.userId
