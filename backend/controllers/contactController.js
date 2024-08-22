@@ -31,9 +31,6 @@ export async function handleGetContacts(req, res) {
     // Verify the token using the jwtSecret, and decode its contents
     const decoded = jwt.verify(token, jwtSecret)
 
-    // console.log for testing
-    // console.log(decoded)
-
     // Extract the user ID from the decoded token
     const userId = decoded.userId
 
