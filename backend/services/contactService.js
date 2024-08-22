@@ -39,6 +39,11 @@ export async function getContacts(userId) {
   // Find the user by ID and populate the contacts array
   const user = await User.findById(userId).populate('contacts'); // populate() fetches the referenced documents from the Contact collection and replaces the IDs in the contacts field with the actual contact documents.
 
+  // Check if the user exists
+  if (!user) {
+    throw new Error('User not found');
+  }
+
   // return the user's contacts
   return user.contacts;
 }

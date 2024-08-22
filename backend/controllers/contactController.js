@@ -32,7 +32,7 @@ export async function handleGetContacts(req, res) {
     const decoded = jwt.verify(token, jwtSecret)
 
     // Extract the user ID from the decoded token
-    const userId = decoded.userId
+    const userId = decoded.id
 
     // Call the getContacts function to retrieve the user's contacts, passing the user ID as an argument
     const contacts = await getContacts(userId)
