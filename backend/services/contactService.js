@@ -34,4 +34,11 @@ export async function createContact(token, contactId, nickname) {
   return newContact
 }
 
-// business logic function for fetching contact
+// business logic function to fetch contacts for a user
+export async function getContacts(userId) {
+  // Find the user by ID and populate the contacts array
+  const user = await User.findById(userId).populate('contacts'); // populate() fetches the referenced documents from the Contact collection and replaces the IDs in the contacts field with the actual contact documents.
+
+  // return the user's contacts
+  return user.contacts;
+}
