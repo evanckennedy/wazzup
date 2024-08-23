@@ -64,9 +64,6 @@ export async function handleDeleteContact(req, res) {
     // get the contact ID from the URL parameter
     const contactId = req.params.contactId
 
-    console.log('user id:', userId)
-    console.log('contact id:',contactId)
-
     // call the service function to delete the contact
     await deleteContact(userId, contactId);
 
@@ -80,6 +77,3 @@ export async function handleDeleteContact(req, res) {
     res.status(500).json({ message: 'Internal Server Error' })
   }
 }
-
-/* decoded returns:
-{ id: '66c4ed66eb2aa804a6abf2ab', iat: 1724273313, exp: 1724878113 } */
