@@ -57,7 +57,7 @@ export async function deleteContact(userId, contactId) {
   }
 
   // Remove the contact from the user's contacts list
-  user.contacts = user.contacts.filter(contact => contact !== contactId)
+  user.contacts = user.contacts.filter(contact => contact.toString() !== contactId) // `contact` is an ObjectID and `contactId` is a string.
 
   // Save the updated user document
   await user.save();
