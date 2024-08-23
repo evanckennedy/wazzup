@@ -1,5 +1,5 @@
 import express from 'express'
-import { handleCreateContact, handleGetContacts } from '../controllers/contactController.js';
+import { handleCreateContact, handleGetContacts, handleDeleteContact } from '../controllers/contactController.js';
 
 // create router instance
 const router = express.Router();
@@ -9,5 +9,8 @@ router.post('/contacts', handleCreateContact)
 
 // define a GET route for fetching a users contacts, handled by the handleGetContacts function
 router.get('/contacts', handleGetContacts)
+
+// define the DELETE route for deleting a contact
+router.delete('/contacts/:contactId', handleDeleteContact)
 
 export default router;

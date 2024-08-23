@@ -47,3 +47,21 @@ export async function getContacts(userId) {
   // return the user's contacts
   return user.contacts;
 }
+
+// function to delete a contact
+export async function deleteContact(userId, contactId) {
+  const user = await User.findById(userId)
+
+  if (!user) {
+    throw new Error('User not found');
+  }
+
+  // Remove the contact from the user's contacts list
+  user.contacts = user.contacts.filter(contact => contact.toString() !== contactId) // `contact` is naturally an ObjectID and `contactId` is a string.
+
+  // Save the updated user document
+  await user.save();
+
+  // remove the contact from the contacts collection
+  await Contact.findByIdAndDelete(contactId);
+}
