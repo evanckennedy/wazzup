@@ -64,6 +64,9 @@ export async function handleDeleteContact(req, res) {
     // get the contact ID from the URL parameter
     const contactId = req.params.contactId
 
+    console.log('user id:', userId)
+    console.log('contact id:',contactId)
+
     // call the service function to delete the contact
     await deleteContact(userId, contactId);
 

@@ -11,6 +11,6 @@ router.post('/contacts', handleCreateContact)
 router.get('/contacts', handleGetContacts)
 
 // define the DELETE route for deleting a contact
-router.delete('/contacts/:contact:Id', handleDeleteContact)
+router.delete('/contacts/:contactId', handleDeleteContact)
 
 export default router;
