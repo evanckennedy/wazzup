@@ -2,6 +2,7 @@ import connectDB from "./config/database.js";
 import express from 'express';
 import userRoutes from './routes/userRoutes.js'
 import contactRoutes from './routes/contactRoutes.js'
+import chatRoutes from "./routes/chatRoutes.js";
 
 // Create an instance of an Express application
 const app = express();
@@ -16,6 +17,7 @@ app.use(express.json());
 
 app.use('/api', userRoutes); // Use the user routes under the /api path
 app.use('/api', contactRoutes) // Use contact routes under the /api path
+app.use('/api', chatRoutes)
 
 // Define a simple route
 app.get('/', (req, res) => {
