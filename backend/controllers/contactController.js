@@ -1,6 +1,7 @@
 import { createContact, getContacts } from "../services/contactService.js";
 import dotenv from "dotenv";
 import jwt from 'jsonwebtoken'
+import User from "../models/User.js";
 
 // Load environment variables from .env file
 dotenv.config();
@@ -47,3 +48,4 @@ export async function handleGetContacts(req, res) {
     res.status(500).json({ message: 'Internal Server Error '})
   }
 }
+
