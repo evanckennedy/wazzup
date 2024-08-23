@@ -1,9 +1,19 @@
 import Chat from '../models/Chat.js'
 import User from '../models/User.js';
+import dotenv from "dotenv";
 
-export async function createChat(chatData) {
-  // get the participants from the chatData
-  const { participants } = chatData
+// Load environment variables from .env file
+dotenv.config();
+
+const jwtSecret = process.env.JWT_SECRET
+
+export async function createChat(token, otherParticipants) {
+  // Decode the token to get the user ID
+  const decoded = jwt.verify(token, jwtSecret);
+  const userId = decoded.id;
+
+  // combine all partipants and store in an array
+  const participants = [...otherParticipants, userId]
 
   //create new chat document
   const newChat = new Chat({

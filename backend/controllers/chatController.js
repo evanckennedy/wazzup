@@ -3,9 +3,14 @@ import { createChat } from "../services/chatService.js"
 
 export async function handleCreateChat(req, res) {
   try {
-    // await createChat service function to execute, passing the req.body as an argument
-    // data submitted by client includes the participants in the request body
-    const chat = await createChat(req.body)
+    // Extract the token from the Authorization header
+    const token = req.headers.authorization.split(' ')[1];
+
+    // get the participants (other than the user who created the chat)
+    const otherParticipants = req.body
+
+    // await createChat service function to execute
+    const chat = await createChat(token, otherParticipants)
 
     // send a 201 created response; include chat in the response
     res.status(201).json(chat);
