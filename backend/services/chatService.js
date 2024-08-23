@@ -1,4 +1,4 @@
-async function createChat(chatData) {
+export async function createChat(chatData) {
   // get the participants from the chatData
 
   //create new chat document
