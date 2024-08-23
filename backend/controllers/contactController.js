@@ -1,4 +1,4 @@
-import { createContact, getContacts } from "../services/contactService.js";
+import { createContact, deleteContact, getContacts } from "../services/contactService.js";
 import dotenv from "dotenv";
 import jwt from 'jsonwebtoken'
 import User from "../models/User.js";
@@ -49,3 +49,34 @@ export async function handleGetContacts(req, res) {
   }
 }
 
+// handle DELETE requests for a user's contact
+export async function handleDeleteContact(req, res) {
+  try {
+    // get the token from the authorization header
+    const token = req.headers.authorization.split(' ')[1];
+
+    // verify token and get the contents
+    const decoded = jwt.verify(token, jwtSecret)
+
+    // get user ID from the decoded token
+    const userId = decoded.id;
+
+    // get the contact ID from the URL parameter
+    const contactId = req.params.contactId
+
+    // call the service function to delete the contact
+    await deleteContact(userId, contactId);
+
+    // return a succesful response with a message.
+    res.status(200).json({ message: 'Contact deleted successfully' }) 
+  } catch (error) {
+    console.error('Error deleting contact:', error)
+    if (error.message === 'User not found') {
+      return res.status(404).json({ message: 'User not found' })
+    }
+    res.status(500).json({ message: 'Internal Server Error' })
+  }
+}
+
+/* decoded returns:
+{ id: '66c4ed66eb2aa804a6abf2ab', iat: 1724273313, exp: 1724878113 } */
