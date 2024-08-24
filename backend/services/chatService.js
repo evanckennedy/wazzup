@@ -37,7 +37,16 @@ export async function createChat(token, otherParticipants) {
   return newChat;
 }
 
-export async function getChats(userId) {
-  // find all the chats the user partakes in
-  // populate the Chat with all the participants name and last message im not sure if it does that implicitly or not
+// Service to handle getting all chats for a user
+export async function getChats(token) {
+  const decoded = token.jwt.verify(token, jwtSecret)
+  const userId = decoded.id
+
+  // Find all chats that the user is a participant in
+  // Populate the Chat with all the participants' username and name, and the last message
+  const chats = await Chat.find({ participants: userId })
+    .populate('participants', 'username name') // Populate participants with username and name
+    .populate('lastMessage'); // Populate lastMessage with the actual message object
+
+  return chats;
 }

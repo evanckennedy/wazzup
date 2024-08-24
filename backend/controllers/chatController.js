@@ -20,11 +20,14 @@ export async function handleCreateChat(req, res) {
   }
 }
 
-// Service to handle getting all chats for a user
+// Controller to handle getting all chats for a user
 export async function handleGetChats(req, res) {
-  // get the token
-  // decode the token and get the user Id
-  // pass the userId as argument to service function
-
-  // catch errors
+  try {
+    const token = req.headers.authorization.split(' ')[1]
+    const chats = await getChats(token);
+    res.status(200).json(chats)
+  } catch (error) {
+    console.error('Error creating chat:', error);
+    res.status(500).json({ message: 'Internal Server Error '});
+  }
 }
