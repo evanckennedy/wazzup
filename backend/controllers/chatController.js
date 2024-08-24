@@ -1,5 +1,5 @@
 // import service functions
-import { createChat } from "../services/chatService.js"
+import { createChat, getChats } from "../services/chatService.js"
 
 export async function handleCreateChat(req, res) {
   try {
@@ -18,4 +18,13 @@ export async function handleCreateChat(req, res) {
     console.error('Error creating chat:', error);
     res.status(500).json({ message: 'Internal Server Error '});
   }
+}
+
+// Service to handle getting all chats for a user
+export async function handleGetChats(req, res) {
+  // get the token
+  // decode the token and get the user Id
+  // pass the userId as argument to service function
+
+  // catch errors
 }

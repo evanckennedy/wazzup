@@ -36,3 +36,8 @@ export async function createChat(token, otherParticipants) {
 
   return newChat;
 }
+
+export async function getChats(userId) {
+  // find all the chats the user partakes in
+  // populate the Chat with all the participants name and last message im not sure if it does that implicitly or not
+}
