@@ -9,7 +9,7 @@ dotenv.config();
 const jwtSecret = process.env.JWT_SECRET
 
 // business logic function for adding contact
-export async function createContact(token, contactId, nickname) {
+export async function createContact(token, contactId) {
   // using the jwt.verify() function to verify the authenticity and integrity JWT using my secret key.
   const decoded = jwt.verify(token, jwtSecret)
 
@@ -19,7 +19,6 @@ export async function createContact(token, contactId, nickname) {
   const newContact = new Contact({
     userId,
     contactId,
-    nickname,
   });
 
   await newContact.save();

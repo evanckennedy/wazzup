@@ -13,6 +13,7 @@ import bcrypt from "bcrypt"
  * @property {string} name - The name of the user.
  * @property {string} password - The hashed password of the user.
  * @property {Array.<mongoose.Schema.Types.ObjectId>} contacts - The contacts of the user.
+ * @property {Array.<mongoose.Schema.Types.ObjectId>} chats - The chats of the user
  * @property {Date} createdAt - The creation date of the user.
  * @property {Date} updatedAt - The last update date of the user.
  */
@@ -37,6 +38,10 @@ const userSchema = new mongoose.Schema({
   contacts: [{ 
     type: mongoose.Schema.Types.ObjectId, 
     ref: 'Contact' 
+  }],
+  chats: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Chat'
   }],
   createdAt: {
     type: Date,

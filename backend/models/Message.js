@@ -4,39 +4,36 @@ import mongoose from "mongoose";
  * Represents the schema for a message in the database.
  *
  * @typedef {Object} MessageSchema
- * @property {mongoose.Schema.Types.ObjectId} chatId - The ID of the chat associated with the message.
- * @property {mongoose.Schema.Types.ObjectId} senderId - The ID of the user who sent the message.
- * @property {mongoose.Schema.Types.ObjectId} receiverId - The ID of the user who received the message.
- * @property {string} message - The content of the message.
- * @property {Date} timestamp - The timestamp when the message was created.
- * @property {string} status - The status of the message (sent, delivered, read).
+ * @property {mongoose.Schema.Types.ObjectId} chat - The ID of the chat associated with the message.
+ * @property {mongoose.Schema.Types.ObjectId} sender - The ID of the user who sent the message.
+ * @property {string} content - The content of the message.
+ * @property {Date} createdAt - The timestamp when the message was created.
+ * @property {Date} updatedAt - The timestamp when the message was updated.
  */
 const messageSchema = new mongoose.Schema({
-  chatId: {
+  chat: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Chat',
     required: true,
   },
-  senderId: {
+  sender: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true,
   },
-  receiverId: { 
-    type: Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
+  content: {
+    type: String, 
+    required: true,
   },
-  message: String,
-  timestamp: {
+  createdAt: {
+    type: Date,
+    immutable: true,
+    default: () => Date.now(),
+  },
+  updatedAt: {
     type: Date,
     default: () => Date.now(),
   },
-  status: {
-    type: String,
-    enum: ['sent', 'delivered', 'read'],
-    default: 'sent',
-  }
 })
 
 // create the message model using the message schema

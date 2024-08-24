@@ -12,8 +12,8 @@ const jwtSecret = process.env.JWT_SECRET
 export async function handleCreateContact (req, res) {
   try {
     const token = req.headers.authorization.split(' ')[1] // if the authorization header value is "Bearer abc123xyz", the code will split it into an array ["Bearer", "abc123xyz"], and then assign the token "abc123xyz" to the token variable.
-    const { contactId, nickname } = req.body;
-    const newContact = await createContact(token, contactId, nickname)
+    const { contactId } = req.body;
+    const newContact = await createContact(token, contactId)
 
     // include the new contact in the response
     res.status(201).json(newContact)

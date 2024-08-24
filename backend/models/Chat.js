@@ -5,6 +5,7 @@ import mongoose from "mongoose";
  *
  * @typedef {Object} ChatSchema
  * @property {Array.<mongoose.Schema.Types.ObjectId>} participants - The participants of the chat.
+ * @property {Array.<mongoose.Schema.Types.ObjectId>} messages 
  * @property {mongoose.Schema.Types.ObjectId} lastMessage - The last message in the chat.
  * @property {Date} createdAt - The date and time when the chat was created.
  * @property {Date} updatedAt - The date and time when the chat was last updated.
@@ -13,6 +14,10 @@ const chatSchema = new mongoose.Schema({
   participants: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
+  }],
+  messages: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Message'
   }],
   lastMessage: {
     type: mongoose.Schema.Types.ObjectId,
