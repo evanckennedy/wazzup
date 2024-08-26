@@ -1,5 +1,6 @@
 import Chat from '../models/Chat.js'
 import User from '../models/User.js';
+import jwt from 'jsonwebtoken'
 import dotenv from "dotenv";
 
 // Load environment variables from .env file
