@@ -11,6 +11,6 @@ router.post('/users', handleCreateUser);
 router.post('/users/login', handleLogin);
 
 // Define a GET route for fetching a user, handles by the handleGetUserDetails function
-router.get('/users/:id', handleGetUserDetails);
+router.get('/users/me', handleGetUserDetails);
 
 export default router;

@@ -1,4 +1,11 @@
 import { createUser, authenticateUser, getUserById } from "../services/userService.js"
+import jwt from 'jsonwebtoken'
+import dotenv from "dotenv";
+
+// Load environment variables from .env file
+dotenv.config();
+
+const jwtSecret = process.env.JWT_SECRET
 
 // Handles user creation request: extracts user data, calls CreateUser, and returns success/error response
 export async function handleCreateUser(req, res) {
@@ -34,7 +41,11 @@ export async function handleLogin(req, res) {
 // Controller function to get user details
 export async function handleGetUserDetails(req, res) {
   try {
-    const user = await getUserById(req.params.id); // req.params.id contains the value of the 'id' parameter in the URL (e.g., /users/123)
+    const token = req.headers.authorization.split(' ')[1];
+    const decoded = jwt.verify(token, jwtSecret);
+    const userId = decoded.id;
+
+    const user = await getUserById(userId); 
     if (!user) {
       // Return a 404 Not Found response if the user is not found
       return res.status(404).json({ message: 'User not found' })
