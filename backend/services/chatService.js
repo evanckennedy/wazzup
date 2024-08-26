@@ -40,7 +40,7 @@ export async function createChat(token, otherParticipants) {
 
 // Service to handle getting all chats for a user
 export async function getChats(token) {
-  const decoded = token.jwt.verify(token, jwtSecret)
+  const decoded = jwt.verify(token, jwtSecret)
   const userId = decoded.id
 
   // Find all chats that the user is a participant in
