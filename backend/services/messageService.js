@@ -24,7 +24,7 @@ export async function sendMessage(chat, token, content) {
   await newMessage.save();
 
   // Update the last message in the chat
-  await Chat.findByIdAndUpdate(newMessage.chat, { lastmessage: newMessage._id })
+  await Chat.findByIdAndUpdate(newMessage.chat, { lastmessage: newMessage._id, updatedAt: Date.now() })
 
   return newMessage
 };
