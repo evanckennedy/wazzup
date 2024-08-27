@@ -8,6 +8,12 @@ export async function handleSendMessage(req, res) {
     // get chatId and content from the body
     const { chat, content } = req.body;
 
+    // Validate the request body
+    if (!chat || !content) {
+      // send invalid request error
+      return res.status(400).json({ error: 'Chat ID and content are required.' });
+    }
+
     const message = await sendMessage(chat, token, content)
 
     res.status(201).json(message)
