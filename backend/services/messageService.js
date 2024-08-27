@@ -37,5 +37,26 @@ export async function sendMessage(chat, token, content) {
 };
 
 export async function getMessages(chatId) {
+  try {
+    // find the chat document by its ID
+  const chat = await Chat.findById(chatId)
+  // Populate the messages field in the chat document with the corresponding Message documents
+    .populate({
+      // Specify the field to populate (messages)
+      path: 'messages',
+      // Specify the model to use for population (Message)
+      model: Message
+    })
   
+  // validate that chat exists
+  if(!chat) {
+    throw new Error('Chat not found');
+  }
+
+  // return the populated messages array
+  return chat.messages;
+  } catch (error) {
+    console.error('Error fetching messages:', error);
+    throw error; // Ensure the error is rethrown, otherwise the client won't know an error occured
+  }
 }

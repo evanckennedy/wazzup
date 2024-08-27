@@ -1,4 +1,4 @@
-import { sendMessage } from "../services/messageService.js";
+import { sendMessage, getMessages } from "../services/messageService.js";
 
 export async function handleSendMessage(req, res) {
   try {
@@ -19,6 +19,27 @@ export async function handleSendMessage(req, res) {
     res.status(201).json(message)
   } catch (error) {
     console.error('Error sending message:', error);
+    res.status(500).json({ error: error.message })
+  }
+}
+
+export async function handleGetMessages(req, res) {
+  try {
+    // Get chatId from the route parameters
+    const { chatId } = req.params
+
+    // validate the request parameter 
+    if (!chatId) {
+      return res.status(400).json({ error: 'Chat ID is required' })
+    }
+
+    // Fetch messages using the service function
+    const messages = await getMessages(chatId)
+
+    // respond with fetched messages
+    res.status(200).json(messages)
+  } catch (error) {
+    console.error('Error fetching messages: ', error)
     res.status(500).json({ error: error.message })
   }
 }
