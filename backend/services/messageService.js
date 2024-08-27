@@ -20,6 +20,9 @@ export async function sendMessage(chat, token, content) {
     content
   })
 
+  // Save the new message to the database
+  await newMessage.save();
+
   // Update the last message in the chat
   await Chat.findByIdAndUpdate(newMessage.chat, { lastmessage: newMessage._id })
 
