@@ -1,5 +1,6 @@
 import connectDB from "./config/database.js";
 import express from 'express';
+import cors from 'cors'
 import userRoutes from './routes/userRoutes.js'
 import contactRoutes from './routes/contactRoutes.js'
 import chatRoutes from "./routes/chatRoutes.js";
@@ -12,6 +13,9 @@ const PORT = process.env.PORT || 5000;
 
 // Connect to the database
 connectDB();
+
+// Use the CORS middleware to handle CORS
+app.use(cors()); // By default, the cors middleware is configured to allow requests from any origin
 
 // Middleware to parse JSON bodies
 app.use(express.json());
