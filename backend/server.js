@@ -3,6 +3,7 @@ import express from 'express';
 import userRoutes from './routes/userRoutes.js'
 import contactRoutes from './routes/contactRoutes.js'
 import chatRoutes from "./routes/chatRoutes.js";
+import messageRoutes from "./routes/messageRoutes.js"
 
 // Create an instance of an Express application
 const app = express();
@@ -15,9 +16,11 @@ connectDB();
 // Middleware to parse JSON bodies
 app.use(express.json());
 
-app.use('/api', userRoutes); // Use the user routes under the /api path
-app.use('/api', contactRoutes) // Use contact routes under the /api path
-app.use('/api', chatRoutes)
+// Use the routes under the /api path
+app.use('/api', userRoutes); 
+app.use('/api', contactRoutes) 
+app.use('/api', chatRoutes) 
+app.use('/api', messageRoutes)
 
 // Define a simple route
 app.get('/', (req, res) => {
