@@ -23,8 +23,19 @@ export async function sendMessage(chat, token, content) {
   // Save the new message to the database
   await newMessage.save();
 
-  // Update the last message in the chat
-  await Chat.findByIdAndUpdate(newMessage.chat, { lastmessage: newMessage._id, updatedAt: Date.now() })
+  // Update the last message and messages array in the chat
+  await Chat.findByIdAndUpdate(
+    newMessage.chat, 
+    {
+      $push: { messages: newMessage._id }, 
+      lastMessage: newMessage._id, 
+      updatedAt: Date.now() 
+    }
+  )
 
   return newMessage
 };
+
+export async function getMessages(chatId) {
+  
+}
