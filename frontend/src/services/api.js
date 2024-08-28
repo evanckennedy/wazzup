@@ -10,15 +10,17 @@ const api = axios.create({
 
 // create an interceptor
 api.interceptors.request.use(config => {
-  const { token } = useAuth();
+  const token = sessionStorage.getItem('token');
 
   // if there's a token, add an Authorization header to the request config with the token
   if (token) {
-    config.headers.Authorization = `Bearer ${token}`
+    config.headers.Authorization = `Bearer ${token}`;
   }
 
-  return config
-})
+  return config;
+}, error => {
+  return Promise.reject(error);
+});
 
 // User API
 export const registerUser = async userData => {

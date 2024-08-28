@@ -8,15 +8,15 @@ export const useAuth = () => useContext(AuthContext);
 
 // AuthProvider component to wrap the entire app
 export const AuthProvider = ({ children }) => {
-  const [token, setToken] = useState(localStorage.getItem('token'));
+  const [token, setToken] = useState(sessionStorage.getItem('token'));
 
   const saveToken = newToken => {
-    localStorage.setItem('token', newToken)
+    sessionStorage.setItem('token', newToken)
     setToken(newToken)
   }
 
   const clearToken = () => {
-    localStorage.removeItem('token');
+    sessionStorage.removeItem('token');
     setToken('');
   }
 
