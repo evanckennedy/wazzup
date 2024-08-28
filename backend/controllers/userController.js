@@ -14,8 +14,11 @@ export async function handleCreateUser(req, res) {
   try {
     await createUser(name, username, password)
 
-    // Setting the HTTP response status to 201 (Created) and sending a success message
-    res.status(201).send('User created successfully')
+    // Authenticate the user immediately after creation
+    const token = await authenticateUser(username, password);
+
+    // Return a successful response (201) with the generated token in JSON format
+    res.status(201).json({ token });
   } catch (error) {
     // Setting the HTTP response status to 500 (Internal Server Error) and sending an error message
     console.error('Error creating user:', error)
