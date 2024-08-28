@@ -13,6 +13,16 @@ export const registerUser = async userData => {
   }
 }
 
+export const loginUser = async userData => {
+  try {
+    const response = await axios.post(`${API_URL}/users/login`, userData)
+    return response.data
+  } catch (error) {
+    console.error('Error logging in user:', error);
+    throw error
+  }
+}
+
 // Contact API
 
 // Chat API 
