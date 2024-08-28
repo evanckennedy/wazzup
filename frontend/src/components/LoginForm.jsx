@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import AuthButton from './AuthButton';
 import { validate } from '../utils/validation'
 import { loginUser } from '../services/api';
+import { useAuth } from '../contexts/AuthContext'
 
 function LoginForm() {
   // State to manage username and password inputs
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
+  const { saveToken } = useAuth()
 
   // Handle form submission: validate inputs and set errors if any
   const handleSubmit = async e => {
@@ -21,6 +23,7 @@ function LoginForm() {
       try {
         // call loginUser with userData
         const response = await loginUser(userData)
+        saveToken(response.token);
         console.log('User logged in successfully:', response)
       } catch (error) {
         console.error('Error logging in user:', error);
