@@ -179,6 +179,22 @@ body {
   flex: 3;
 }
 /* ============================================= */
+/* Component: ChatSidebar                        */
+/* ============================================= */
+.logout-btn{
+  background-color: transparent;
+  font-weight: 600;
+  color: var(--error-red);
+  padding: 0.5rem;
+}
+.welcome-message {
+  font-weight: 500;
+  font-size: 2.2rem;
+}
+.sidebar-user-info{
+  border-bottom: 2px solid var(--medium-gray);
+}
+/* ============================================= */
 /* Component: ChatSidebarHeader                  */
 /* ============================================= */
 .sidebar-header-container {
