@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
-import { getUserDetails } from '../services/api';
+import { getUserDetails, getUserContacts } from '../services/api';
 
 // Create a context for authentication
 const AuthContext = createContext()
@@ -11,6 +11,7 @@ export const useAuth = () => useContext(AuthContext);
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(sessionStorage.getItem('token'));
   const [user, setUser] = useState(null)
+  const [contacts, setContacts] = useState([])
 
   const saveToken = newToken => {
     sessionStorage.setItem('token', newToken)
@@ -30,8 +31,9 @@ export const AuthProvider = ({ children }) => {
   const fetchUserData = async () => {
     try {
       const userDetails = await getUserDetails()
+      const userContacts = await getUserContacts()
       setUser(userDetails)
-      console.log(user)
+      setContacts(userContacts)
     } catch (error) {
       console.log('Error fetching user details', error)
       logout()
@@ -44,11 +46,17 @@ export const AuthProvider = ({ children }) => {
     }
   }, [token])
 
+  // debugging use effect hooks
   useEffect(() => {
     if (user) {
       console.log(user)
     }
   }, [user])
+  useEffect(() => {
+    if (contacts) {
+      console.log(user)
+    }
+  }, [contacts])
 
   return (
     // <AuthContext.Provider> holds the authentication data

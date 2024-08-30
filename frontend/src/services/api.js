@@ -43,17 +43,26 @@ export const loginUser = async userData => {
   }
 }
 
-export const getUserDetails = async userData => {
+export const getUserDetails = async () => {
   try {
     const response = await api.get(`${API_URL}/users/me`);
     return response.data;
   } catch (error) {
-    console.error('Error fetching contacts:', error)
+    console.error('Error fetching user details:', error)
     throw error
   }
 }
 
 // Contact API
+export const getUserContacts = async () => {
+  try {
+    const response = await api.get(`${API_URL}/contacts`)
+    return response.data
+  } catch (error) {
+    console.error('Error fetching contacts:', error)
+    throw error;
+  }
+}
 
 // Chat API 
 
