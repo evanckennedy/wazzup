@@ -27,6 +27,9 @@ export const AuthProvider = ({ children }) => {
 
   const logout = () => {
     clearToken();
+    setUser(null)
+    setContacts([])
+    setChats(null)
     window.location.href = '/'
   }
 
