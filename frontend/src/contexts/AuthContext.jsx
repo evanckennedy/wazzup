@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react'
+import React, { createContext, useContext, useEffect, useState } from 'react'
 import { getUserDetails } from '../services/api';
 
 // Create a context for authentication
@@ -32,6 +32,12 @@ export const AuthProvider = ({ children }) => {
     setUser(userDetails)
     console.log(user)
   }
+
+  useEffect(() => {
+    if (token) {
+      fetchUserData()
+    }
+  }, [token])
 
   return (
     // <AuthContext.Provider> holds the authentication data
