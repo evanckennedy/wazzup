@@ -28,9 +28,14 @@ export const AuthProvider = ({ children }) => {
   }
 
   const fetchUserData = async () => {
-    const userDetails = await getUserDetails()
-    setUser(userDetails)
-    console.log(user)
+    try {
+      const userDetails = await getUserDetails()
+      setUser(userDetails)
+      console.log(user)
+    } catch (error) {
+      console.log('Error fetching user details', error)
+      logout()
+    }
   }
 
   useEffect(() => {
@@ -38,6 +43,12 @@ export const AuthProvider = ({ children }) => {
       fetchUserData()
     }
   }, [token])
+
+  useEffect(() => {
+    if (user) {
+      console.log(user)
+    }
+  }, [user])
 
   return (
     // <AuthContext.Provider> holds the authentication data
