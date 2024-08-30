@@ -16,6 +16,7 @@ export const AuthProvider = ({ children }) => {
   const saveToken = newToken => {
     sessionStorage.setItem('token', newToken)
     setToken(newToken)
+    window.location.href = '/chat'
   }
 
   const clearToken = () => {
@@ -53,8 +54,8 @@ export const AuthProvider = ({ children }) => {
     }
   }, [user])
   useEffect(() => {
-    if (contacts) {
-      console.log(user)
+    if (contacts && contacts.length > 0) {
+      console.log(contacts)
     }
   }, [contacts])
 
