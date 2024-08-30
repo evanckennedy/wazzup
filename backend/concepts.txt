@@ -63,3 +63,16 @@ JSON Web Tokens:
     - The access card (token) allows the user to enter the building (access 
       protected resources) without needing to use the key and lock (re-enter 
       credentials) every time.
+
+CORS:
+  - CORS stands for Cross-Origin Resource Sharing.
+  - It is a security feature implemented by web browsers to prevent web pages 
+    from making requests to a different domain than the one that served the web page.
+  - It allows servers to specify who can access their resources and how.
+
+React Context
+  - Context is a way to share data between components without passing props down manually.
+  - It's like global variable that can be accessed by any component, without 
+    having to pass it down through props.
+  - The useContext hook in React is used to access the value of a context 
+    (like AuthContext) in a functional component.

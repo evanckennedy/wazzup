@@ -1,23 +1,33 @@
 import React, { useState } from 'react'
 import AuthButton from './AuthButton';
 import { validate } from '../utils/validation'
+import { loginUser } from '../services/api';
+import { useAuth } from '../contexts/AuthContext'
 
 function LoginForm() {
   // State to manage username and password inputs
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
+  const { saveToken } = useAuth()
 
   // Handle form submission: validate inputs and set errors if any
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     setErrors({}); // Reset errors before validation
     const newErrors = validate({username, password});
     setErrors(newErrors);
     console.log('Form submitted with:', { username, password }); // Debugging line
     if (Object.keys(newErrors).length === 0) {
-      // submit form
-      console.log('Form submitted successfully');
+      const userData = { username, password }
+      try {
+        // call loginUser with userData
+        const response = await loginUser(userData)
+        saveToken(response.token);
+        console.log('User logged in successfully:', response)
+      } catch (error) {
+        console.error('Error logging in user:', error);
+      }
     }
   }
 

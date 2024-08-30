@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import AuthButton from './AuthButton';
 import { validate } from '../utils/validation';
+import { registerUser } from '../services/api';
+import { useAuth } from '../contexts/AuthContext'
 
 function RegisterForm() {
   // State to manage name, username, and password inputs
@@ -8,17 +10,26 @@ function RegisterForm() {
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [errors, setErrors] = useState({});
+  const { saveToken } = useAuth()
 
   // Handle form submission: validate inputs and set errors if any
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     setErrors({}); // Reset errors before validation
     const newErrors = validate({ name, username, password });
     setErrors(newErrors);
     console.log('Form submitted with:', { name, username, password }); // Debugging line
     if (Object.keys(newErrors).length === 0) {
-      // submit form
-      console.log('Form submitted');
+      // Collect user data
+      const userData = { name, username, password }
+      try {
+        // call registerUser with the user data
+        const response = await registerUser(userData);
+        saveToken(response.token)
+        console.log('User registered successfully:', response)
+      } catch (error) {
+        console.error('Error registering user:', error);
+      }
     }
   }
 
