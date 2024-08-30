@@ -43,6 +43,17 @@ export const loginUser = async userData => {
   }
 }
 
+export const getUserDetails = async userData => {
+  try {
+    const response = await api.get(`${API_URL}/users/me`);
+    console.log(response); // Debugging: Log the response object to the console
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching contacts:', error)
+    throw error
+  }
+}
+
 // Contact API
 
 // Chat API 
