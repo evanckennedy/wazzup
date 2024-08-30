@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
-import { getUserDetails, getUserContacts } from '../services/api';
+import { getUserDetails, getUserContacts, getUserChats } from '../services/api';
 
 // Create a context for authentication
 const AuthContext = createContext()
@@ -12,6 +12,7 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(sessionStorage.getItem('token'));
   const [user, setUser] = useState(null)
   const [contacts, setContacts] = useState([])
+  const [chats, setChats] = useState(null)
 
   const saveToken = newToken => {
     sessionStorage.setItem('token', newToken)
@@ -33,8 +34,10 @@ export const AuthProvider = ({ children }) => {
     try {
       const userDetails = await getUserDetails()
       const userContacts = await getUserContacts()
+      const userChats = await getUserChats()
       setUser(userDetails)
       setContacts(userContacts)
+      setChats(userChats)
     } catch (error) {
       console.log('Error fetching user details', error)
       logout()
@@ -58,10 +61,15 @@ export const AuthProvider = ({ children }) => {
       console.log(contacts)
     }
   }, [contacts])
+  useEffect(() => {
+    if (chats) {
+      console.log(chats)
+    }
+  }, [chats])
 
   return (
     // <AuthContext.Provider> holds the authentication data
-    <AuthContext.Provider value={{ token, saveToken, clearToken, logout }}>
+    <AuthContext.Provider value={{ token, saveToken, clearToken, logout, contacts, user }}>
       {/* the children prop is being rendered inside the context provider.
           this means that any components wrapped by the AuthProvider will have access to the authentication context
       */}

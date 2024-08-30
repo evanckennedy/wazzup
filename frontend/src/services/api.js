@@ -64,6 +64,15 @@ export const getUserContacts = async () => {
   }
 }
 
-// Chat API 
+// Chat API
+export const getUserChats = async () => {
+  try {
+    const response = await api.get(`${API_URL}/chats`)
+    return response.data
+  } catch (error) {
+    console.error('Error fetching chats:', error)
+    throw error
+  }
+} 
 
 // Message API
