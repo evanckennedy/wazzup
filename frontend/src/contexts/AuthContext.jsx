@@ -20,9 +20,14 @@ export const AuthProvider = ({ children }) => {
     setToken('');
   }
 
+  const logout = () => {
+    clearToken();
+    window.location.href = '/'
+  }
+
   return (
     // <AuthContext.Provider> holds the authentication data
-    <AuthContext.Provider value={{ token, saveToken, clearToken }}>
+    <AuthContext.Provider value={{ token, saveToken, clearToken, logout }}>
       {/* the children prop is being rendered inside the context provider.
           this means that any components wrapped by the AuthProvider will have access to the authentication context
       */}
