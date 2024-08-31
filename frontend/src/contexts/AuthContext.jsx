@@ -11,7 +11,6 @@ export const useAuth = () => useContext(AuthContext);
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(sessionStorage.getItem('token'));
   const [user, setUser] = useState(null)
-  const [userId, setUserId] = useState(null);
   const [contacts, setContacts] = useState([])
   const [chats, setChats] = useState(null)
 
@@ -29,7 +28,6 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     clearToken();
     setUser(null)
-    setUserId(null)
     setContacts([])
     setChats(null)
     window.location.href = '/'
@@ -74,7 +72,7 @@ export const AuthProvider = ({ children }) => {
 
   return (
     // <AuthContext.Provider> holds the authentication data
-    <AuthContext.Provider value={{ token, saveToken, clearToken, logout, contacts, user, userId, chats }}>
+    <AuthContext.Provider value={{ token, saveToken, clearToken, logout, contacts, user, chats }}>
       {/* the children prop is being rendered inside the context provider.
           this means that any components wrapped by the AuthProvider will have access to the authentication context
       */}
