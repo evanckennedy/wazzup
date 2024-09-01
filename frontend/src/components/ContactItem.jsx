@@ -2,7 +2,7 @@ import React from 'react'
 
 function ContactItem({contact}) {
   return (
-    <li>{contact.nickname}</li>
+    <li>{contact.contactId.name} ({contact.contactId.username})</li>
   )
 }
 

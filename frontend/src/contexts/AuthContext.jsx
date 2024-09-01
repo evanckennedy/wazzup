@@ -56,17 +56,17 @@ export const AuthProvider = ({ children }) => {
   // debugging use effect hooks
   useEffect(() => {
     if (user) {
-      console.log(user)
+      console.log('User:', user)
     }
   }, [user])
   useEffect(() => {
     if (contacts && contacts.length > 0) {
-      console.log(contacts)
+      console.log('Contacts', contacts)
     }
   }, [contacts])
   useEffect(() => {
     if (chats) {
-      console.log(chats)
+      console.log('Chats:', chats)
     }
   }, [chats])
 

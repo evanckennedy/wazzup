@@ -5,7 +5,7 @@ function ChatList({chats}) {
   return (
     <div className='chat-list-container'>
       {chats.map((chat) => (
-        <ChatItem key={chat.id} chat={chat} />
+        <ChatItem key={chat._id} chat={chat} />
       ))}
     </div>
   )
