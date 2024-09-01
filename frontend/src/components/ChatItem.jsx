@@ -23,10 +23,6 @@ function ChatItem({chat}) {
       .filter(username => username !== user.username)
     return usernames.join(', ')
   }
-
-  console.log('chat partcipants: ', formatParticipants(chat.participants))
-
-  /* formatParticipants(chat.participants.username) */
   
   return (
     <div className='flex'>
@@ -37,7 +33,7 @@ function ChatItem({chat}) {
         </div>
         <div className='flex gap-5'>
           <p className='chat-item-message'>
-            <span>{chat.lastMessage.sender || 'N/A'}</span>
+            <span>{chat.lastMessage.sender.username || 'N/A'}</span>
             :
             <span> {chat.lastMessage.content || 'No messages'}</span>
           </p>

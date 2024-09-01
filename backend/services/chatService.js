@@ -48,7 +48,13 @@ export async function getChats(token) {
   // Populate the Chat with all the participants' username and name, and the last message
   const chats = await Chat.find({ participants: userId })
     .populate('participants', 'username name') // Populate participants with only username and name
-    .populate('lastMessage'); // Populate lastMessage with the actual message object
+    .populate({
+      path: 'lastMessage',
+      populate: {
+        path: 'sender',
+        select: 'username name' // Populate sender with username and name
+      }
+    }); // Populate lastMessage with the actual message object and sender details
 
   return chats;
 }
