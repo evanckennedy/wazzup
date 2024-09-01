@@ -230,8 +230,6 @@ body {
 .chat-item-message{
   color: var(--mid-dark-gray);
   font-weight: 500;
-  line-height: 1.2;
-  font-size: 1.4rem;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
@@ -243,10 +241,6 @@ body {
 }
 .chat-item-time{
   color: var(--mid-dark-gray);
-}
-.name-title-wrapper{
-  line-height: 1.2;
-  font-size: 1.4rem;
 }
 /* ============================================= */
 /* Component: DefaultChatView                    */
