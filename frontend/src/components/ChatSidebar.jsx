@@ -37,9 +37,15 @@ function ChatSidebar({chats, contacts}) {
       </div>
       <ChatSidebarHeader selectedTab={selectedTab} handleTabClick={handleTabClick}/>
       {selectedTab === 'chats' ? (
-        <ChatList chats={chats}/>
+        <>
+          <button>Create Chat</button>
+          <ChatList chats={chats}/>
+        </>
       ) : (
-        <ContactList contacts={contacts} />
+        <>
+          <button>Create Contact</button>
+          <ContactList contacts={contacts} />
+        </>
       )}
     </div>
   )
