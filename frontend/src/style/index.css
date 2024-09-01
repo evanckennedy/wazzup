@@ -215,7 +215,6 @@ body {
 /* Component: ChatList                           */
 /* ============================================= */
 .chat-list-container{
-  height: 100%;
   overflow-y: auto;
 
   > * {
