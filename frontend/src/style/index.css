@@ -242,6 +242,9 @@ body {
 .chat-item-time{
   color: var(--mid-dark-gray);
 }
+.item-info-container{
+  padding: 0.7rem 0;
+}
 /* ============================================= */
 /* Component: DefaultChatView                    */
 /* ============================================= */
