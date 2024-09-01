@@ -64,12 +64,13 @@ export const getUserContacts = async () => {
   }
 }
 
+// contact is an object that has a contactId property
 export const createContact = async contact => {
   try {
     const response = await api.post(`${API_URL}/contacts`, contact)
     return response.data;
   } catch (error) {
-    console.error('Error creating contacts:', error)
+    console.error('Error creating contact:', error)
     throw error
   }
 }
@@ -84,5 +85,16 @@ export const getUserChats = async () => {
     throw error
   }
 } 
+
+// partipants is an object that has a particpants property containing an array of participants
+export const createChat = async participants => {
+  try {
+    const response = await api.post(`${API_URL}/chats`, participants)
+    return response.data
+  } catch (error) {
+    console.error('Error creating chat:', error)
+    throw error
+  }
+}
 
 // Message API
