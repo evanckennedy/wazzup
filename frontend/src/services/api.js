@@ -64,6 +64,16 @@ export const getUserContacts = async () => {
   }
 }
 
+export const createContact = async contact => {
+  try {
+    const response = await api.post(`${API_URL}/contacts`, contact)
+    return response.data;
+  } catch (error) {
+    console.error('Error creating contacts:', error)
+    throw error
+  }
+}
+
 // Chat API
 export const getUserChats = async () => {
   try {
