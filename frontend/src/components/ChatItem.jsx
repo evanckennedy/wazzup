@@ -5,11 +5,14 @@ function ChatItem({chat}) {
   const { user } = useAuth()
 
   const formatTime = time => {
+    // Create a new Date object from the provided time
     const date = new Date(time)
+
+    // Format the date object to a locale time string in 'en-US' format with options to display the hour and minute in 12-hour format
     return date.toLocaleTimeString('en-US', {
-      hour: 'numeric',
-      minute: 'numeric',
-      hour12: true,
+      hour: 'numeric', // Display the hour
+      minute: 'numeric', // Display the minute
+      hour12: true, // Use 12-hour format (AM/PM)
     })
   }
 
