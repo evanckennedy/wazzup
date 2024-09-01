@@ -215,7 +215,6 @@ body {
 /* Component: ChatList                           */
 /* ============================================= */
 .chat-list-container{
-  height: 100%;
   overflow-y: auto;
 
   > * {
@@ -231,8 +230,6 @@ body {
 .chat-item-message{
   color: var(--mid-dark-gray);
   font-weight: 500;
-  line-height: 1.2;
-  font-size: 1.4rem;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
@@ -245,9 +242,8 @@ body {
 .chat-item-time{
   color: var(--mid-dark-gray);
 }
-.name-title-wrapper{
-  line-height: 1.2;
-  font-size: 1.4rem;
+.item-info-container{
+  padding: 0.7rem 0;
 }
 /* ============================================= */
 /* Component: DefaultChatView                    */
