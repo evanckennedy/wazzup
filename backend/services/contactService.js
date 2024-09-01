@@ -35,8 +35,14 @@ export async function createContact(token, contactId) {
 
 // business logic function to fetch contacts for a user
 export async function getContacts(userId) {
-  // Find the user by ID and populate the contacts array
-  const user = await User.findById(userId).populate('contacts'); // populate() fetches the referenced documents from the Contact collection and replaces the IDs in the contacts field with the actual contact documents.
+  // Find the user by ID and populate the contacts array with contactId populated with username and name
+  const user = await User.findById(userId).populate({
+    path: 'contacts',
+    populate: {
+      path: 'contactId',
+      select: 'username name' // Select only the username and name fields
+    }
+  });
 
   // Check if the user exists
   if (!user) {
