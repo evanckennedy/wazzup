@@ -53,7 +53,7 @@ export const AuthProvider = ({ children }) => {
     }
   }, [token])
 
-  // debugging use effect hooks
+  // debugging use effect hooks. Delete later
   useEffect(() => {
     if (user) {
       console.log('User:', user)
