@@ -1,8 +1,28 @@
 import React from 'react'
 
-function CreateContactModal() {
+function CreateContactModal({isOpen, onClose}) {
+  if (!isOpen) return null
+
+  const handleSubmit = event => {
+    event.preventDefault()
+
+    // submission logic
+
+    onClose();
+  }
+
   return (
-    <div>CreateContactModal</div>
+    <div>
+      <div>
+        <h2>Create Contact</h2>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="contactId">Contact ID:</label>
+          <input type="text" id='contactId' placeholder="Enter your contact's id" />
+          <button type='submit'>Create</button>
+          <button type='button' onClick={onClose}>Cancel</button>
+        </form>
+      </div>
+    </div>
   )
 }
 

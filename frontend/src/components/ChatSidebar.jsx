@@ -4,10 +4,15 @@ import ChatSidebarHeader from './ChatSidebarHeader'
 import ContactList from './ContactList';
 import LogoutButton from './LogoutButton';
 import { useAuth } from '../contexts/AuthContext';
+import CreateChatModal from './CreateChatModal';
+import CreateContactModal from './CreateContactModal';
 
 function ChatSidebar({chats, contacts}) {
   // State to manage the selected tab, either 'chats' or 'contacts'
   const [selectedTab, setSelectedTab] = useState('chats');
+
+  const [isChatModalOpen, setIsChatModalOpen] = useState(false)
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false)
 
   // get user info from AuthContext
   const { user } = useAuth()
@@ -38,13 +43,15 @@ function ChatSidebar({chats, contacts}) {
       <ChatSidebarHeader selectedTab={selectedTab} handleTabClick={handleTabClick}/>
       {selectedTab === 'chats' ? (
         <>
-          <button>Create Chat</button>
+          <button onClick={() => setIsChatModalOpen(true)}>Create Chat</button>
           <ChatList chats={chats}/>
+          <CreateChatModal isOpen={isChatModalOpen} onClose={() => setIsChatModalOpen(false)}/>
         </>
       ) : (
         <>
-          <button>Create Contact</button>
+          <button onClick={() => setIsContactModalOpen(true)}>Create Contact</button>
           <ContactList contacts={contacts} />
+          <CreateContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)}/>
         </>
       )}
     </div>
