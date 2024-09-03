@@ -7,11 +7,12 @@ function CreateContactModal({isOpen, onClose}) {
 
   if (!isOpen) return null
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault()
 
     try {
-      createContact({contactId})
+      const trimmedContactId = contactId.trim()
+      await createContact({contactId: trimmedContactId})
       onClose();
       setContactId('')
     } catch (error) {
