@@ -5,20 +5,19 @@ function CreateChatModal({ isOpen, onClose}) {
   const { contacts, createChat } = useAuth()
   const [selectedContacts, setSelectedContacts] = useState([])
 
-  // testing
-  useEffect(() => {
-    console.log("Selected Contacts:", selectedContacts);
-  }, [selectedContacts]);
-
   if (!isOpen) return null; 
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault();
-    
-    //testing - remove later
-    console.log({participants: selectedContacts})
 
-    onClose();
+    try {
+      await createChat({ participants: selectedContacts })
+      onClose();
+      setSelectedContacts([])
+      console.log('successfully created chat')
+    } catch (error) {
+      console.error('Error creating chat:', error)
+    }
   }
 
   const handleContactChange = event => {

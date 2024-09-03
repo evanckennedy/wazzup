@@ -33,9 +33,12 @@ function ChatItem({chat}) {
         </div>
         <div className='flex gap-5'>
           <p className='chat-item-message'>
-            <span>{chat.lastMessage.sender.username || 'N/A'}</span>
-            :
-            <span> {chat.lastMessage.content || 'No messages'}</span>
+            { chat.lastMessage &&
+            <>
+              <span>{chat.lastMessage.sender.username || 'N/A'}</span>:
+              <span> {chat.lastMessage.content || 'No messages'}</span>
+            </>
+            }
           </p>
         </div>
       </div>
