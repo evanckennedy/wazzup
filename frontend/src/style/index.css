@@ -243,7 +243,17 @@ body {
   color: var(--mid-dark-gray);
 }
 .item-info-container{
-  padding: 0.7rem 0;
+  padding: 0.4rem 0;
+}
+/* ============================================= */
+/* Component: ContactItem                        */
+/* ============================================= */
+
+.delete-contact-btn{
+  background-color: transparent;
+}
+.contact-username{
+  font-weight: 500;
 }
 /* ============================================= */
 /* Component: DefaultChatView                    */

@@ -1,8 +1,15 @@
 import React from 'react'
+import { FiTrash } from 'react-icons/fi';
 
 function ContactItem({contact}) {
   return (
-    <li>{contact.contactId.name} ({contact.contactId.username})</li>
+
+    <li className='flex justify-between item-info-container'>
+      <p className='contact-username'>{contact.contactId.username}</p>
+      <button className='delete-contact-btn'>
+        <FiTrash />
+      </button>
+    </li>
   )
 }
 
