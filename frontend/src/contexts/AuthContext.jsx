@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
-import { getUserDetails, getUserContacts, getUserChats, createChat as apiCreateChat, createContact as apiCreateContact } from '../services/api';
+import { getUserDetails, getUserContacts, getUserChats, createChat as apiCreateChat, createContact as apiCreateContact, deleteContact as apiDeleteContact } from '../services/api';
 
 // Create a context for authentication
 const AuthContext = createContext()
@@ -58,6 +58,17 @@ export const AuthProvider = ({ children }) => {
     }
   }
 
+  const deleteContact = async contactId => {
+    try {
+      await apiDeleteContact(contactId);
+      const updatedContacts = await getUserContacts();
+      setContacts(updatedContacts);
+    } catch (error) {
+      console.error('Error creating chat:', error)
+      throw error
+    }
+  }
+
   const createChat = async participants => {
     try {
       await apiCreateChat(participants)
@@ -94,7 +105,7 @@ export const AuthProvider = ({ children }) => {
 
   return (
     // <AuthContext.Provider> holds the authentication data
-    <AuthContext.Provider value={{ token, saveToken, clearToken, logout, contacts, user, chats, createContact, createChat }}>
+    <AuthContext.Provider value={{ token, saveToken, clearToken, logout, contacts, user, chats, createContact, createChat, deleteContact }}>
       {/* the children prop is being rendered inside the context provider.
           this means that any components wrapped by the AuthProvider will have access to the authentication context
       */}
