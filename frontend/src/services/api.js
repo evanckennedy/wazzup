@@ -75,6 +75,16 @@ export const createContact = async contact => {
   }
 }
 
+export const deleteContact = async contactId => {
+  try {
+    const response = await api.delete(`${API_URL}/contacts/${contactId}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error deleting contact:', error);
+    throw error;
+  }
+}
+
 // Chat API
 export const getUserChats = async () => {
   try {
