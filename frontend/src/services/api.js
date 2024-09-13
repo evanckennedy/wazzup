@@ -108,3 +108,12 @@ export const createChat = async participants => {
 }
 
 // Message API
+export const getChatMessages = async chatId => {
+  try {
+    const response = await api.get(`${API_URL}/messages/${chatId}`)
+    return response.data;
+  } catch (error) {
+    console.error('Error loading chat messages:', error)
+    throw error
+  }
+}
