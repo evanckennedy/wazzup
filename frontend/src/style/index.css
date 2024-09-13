@@ -278,9 +278,12 @@ body {
   width: 100%;
   align-items: center;
 
+  .message-input{
+    flex-grow: 1;
+  }
+
   .input-icon{
     font-size: 1.8rem;
-    
   }
 
   .send-icon-enabled{

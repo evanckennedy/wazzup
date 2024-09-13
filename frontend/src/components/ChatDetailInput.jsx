@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { AiOutlineSend, AiFillSend } from 'react-icons/ai';
+import { AiOutlineSend } from 'react-icons/ai';
 
 function ChatDetailInput() {
   const [message, setMessage] = useState('');
 
   return (
-    <div className='chat-detail-input-container flex justify-between'>
+    <div className='chat-detail-input-container flex gap-20'>
       <input 
         className='message-input'
         type="text" 
