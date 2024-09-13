@@ -11,7 +11,8 @@ function ChatWindow() {
       */
   return (
     <div className='chat-window'>
-      <DefaultChatView />
+      {/* <DefaultChatView /> */}
+      <ChatDetail />
     </div>
   )
 }

@@ -270,7 +270,6 @@ body {
 /* ============================================= */
 .chat-detail-header-container{
   width: 100%;
-  align-items: center;
 }
 /* ============================================= */
 /* Component: ChatDetailInput                    */
@@ -281,9 +280,16 @@ body {
 
   .input-icon{
     font-size: 1.8rem;
+    
   }
 
-  .message-input{
-    width: 85%;
+  .send-icon-enabled{
+    color: var(--forest-green);
+    cursor: pointer;
+  }
+
+  .send-icon-disabled{
+    color: var(--mid-dark-gray);
+    cursor: not-allowed;
   }
 }
