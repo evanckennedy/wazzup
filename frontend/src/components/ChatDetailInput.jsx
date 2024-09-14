@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
-import { AiOutlineSmile, AiOutlineAudio, AiOutlineSend, AiOutlinePaperClip } from 'react-icons/ai';
+import { AiOutlineSend } from 'react-icons/ai';
 
 function ChatDetailInput() {
   const [message, setMessage] = useState('');
 
   return (
-    <div className='chat-detail-input-container flex justify-between'>
-      <AiOutlineSmile className='input-icon'/>
-      <AiOutlinePaperClip className='input-icon'/>
+    <div className='chat-detail-input-container flex gap-20'>
       <input 
         className='message-input'
         type="text" 
@@ -15,8 +13,8 @@ function ChatDetailInput() {
         value={message}
         onChange={e => setMessage(e.target.value)}
       />
-      {/* Conditionally render the send icon if message has a value */}
-      {message ? <AiOutlineSend className='input-icon'/> : <AiOutlineAudio className='input-icon'/> }
+      {/* Conditionally render the send icon with different colors */}
+      <AiOutlineSend className={`input-icon ${message ? 'send-icon-enabled' : 'send-icon-disabled' }`} />
     </div>
   )
 }

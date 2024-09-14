@@ -1,7 +1,7 @@
 import React from 'react'
 import { useAuth } from '../contexts/AuthContext'
 
-function ChatItem({chat}) {
+function ChatItem({chat, onSelectChat }) {
   const { user } = useAuth()
 
   const formatTime = time => {
@@ -23,9 +23,13 @@ function ChatItem({chat}) {
       .filter(username => username !== user.username)
     return usernames.join(', ')
   }
+
+  const handleClick = () => {
+    onSelectChat(chat);
+  }
   
   return (
-    <div className='flex'>
+    <div className='flex' onClick={() => handleClick()}>
       <div className='item-info-container flex flex-column'>
         <div className='name-title-wrapper flex justify-between'>
           <p className='chat-item-name'>{formatParticipants(chat.participants)}</p>

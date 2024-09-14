@@ -1,21 +1,27 @@
-import React from 'react';
-import { AiOutlineVideoCamera, AiOutlinePhone, AiOutlineSearch } from 'react-icons/ai';
+import React, { useEffect } from 'react';
+import { useAuth } from '../contexts/AuthContext'
 
-function ChatDetailHeader() {
+function ChatDetailHeader({chat}) {
+  const { user } = useAuth()
+
+  const formatParticipants = participants => {
+    if (!user) return '';
+
+    // Extract usernames from particpant object and filter out the current user's username
+    const usernames = participants
+      .map(participant => participant.username) 
+      .filter(username => username !== user.username)
+    return usernames.join(', ')
+  }
+
+  // debugging. remove later
+  useEffect(() => {
+    console.log("chat stuff:", chat)
+  }, [chat])
+
   return (
     <div className='chat-detail-header-container flex justify-between'>
-      <div className='flex gap-10'>
-        <img 
-          className='chat-item-pfp'
-          src="https://via.placeholder.com/128" 
-          alt="avatar"/>
-        <p>John Doe</p>
-      </div>
-      <div className='flex gap-10'>
-        <AiOutlineVideoCamera />
-        <AiOutlinePhone />
-        <AiOutlineSearch />
-      </div>
+      <p>{formatParticipants(chat.participants)}</p>
     </div>
   );
 }
