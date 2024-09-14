@@ -118,9 +118,9 @@ export const getChatMessages = async chatId => {
   }
 }
 
-export const sendMessage = async () => {
+export const sendMessage = async (chat, content) => {
   try {
-    const response = await api.post(`${API_URL}/messages`)
+    const response = await api.post(`${API_URL}/messages`, {chat, content})
     return response.data
   } catch (error) {
     console.error('Error sending message:', error)
