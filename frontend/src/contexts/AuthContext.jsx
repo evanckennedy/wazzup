@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null)
   const [contacts, setContacts] = useState([])
   const [chats, setChats] = useState(null)
-  const [chatMessages, setChatMessages] = ([])
+  const [chatMessages, setChatMessages] = useState([])
 
   const saveToken = newToken => {
     sessionStorage.setItem('token', newToken)
@@ -113,6 +113,11 @@ export const AuthProvider = ({ children }) => {
       console.log('Chats:', chats)
     }
   }, [chats])
+  useEffect(() => {
+    if (chatMessages) {
+      console.log('Chat messages:', chatMessages)
+    }
+  }, [chatMessages])
 
   return (
     // <AuthContext.Provider> holds the authentication data
