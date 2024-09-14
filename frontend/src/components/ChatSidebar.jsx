@@ -7,7 +7,7 @@ import { useAuth } from '../contexts/AuthContext';
 import CreateChatModal from './CreateChatModal';
 import CreateContactModal from './CreateContactModal';
 
-function ChatSidebar({chats, contacts}) {
+function ChatSidebar({chats, contacts, onSelectChat }) {
   // State to manage the selected tab, either 'chats' or 'contacts'
   const [selectedTab, setSelectedTab] = useState('chats');
 
@@ -44,7 +44,7 @@ function ChatSidebar({chats, contacts}) {
       {selectedTab === 'chats' ? (
         <>
           <button onClick={() => setIsChatModalOpen(true)}>Create Chat</button>
-          <ChatList chats={chats}/>
+          <ChatList chats={chats} onSelectChat={onSelectChat}/>
           <CreateChatModal isOpen={isChatModalOpen} onClose={() => setIsChatModalOpen(false)}/>
         </>
       ) : (

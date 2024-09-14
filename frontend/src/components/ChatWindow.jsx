@@ -2,7 +2,8 @@ import React from 'react'
 import DefaultChatView from './DefaultChatView'
 import ChatDetail from './ChatDetail'
 
-function ChatWindow() {
+function ChatWindow({selectedChat}) {
+
      /* 
      To do: 
       - render ChatDetail component if the user selects a chat, and pass the 
@@ -11,8 +12,11 @@ function ChatWindow() {
       */
   return (
     <div className='chat-window'>
-      {/* <DefaultChatView /> */}
-      <ChatDetail />
+      {selectedChat ? (
+        <ChatDetail chat={selectedChat} />
+      ) : (
+        <DefaultChatView />
+      )}
     </div>
   )
 }

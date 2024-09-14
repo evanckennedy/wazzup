@@ -1,8 +1,8 @@
 import React from 'react'
 import { useAuth } from '../contexts/AuthContext'
 
-function ChatItem({chat}) {
-  const { user, getChatMessages } = useAuth()
+function ChatItem({chat, onSelectChat }) {
+  const { user } = useAuth()
 
   const formatTime = time => {
     // Create a new Date object from the provided time
@@ -24,16 +24,12 @@ function ChatItem({chat}) {
     return usernames.join(', ')
   }
 
-  const getMessages = async chatId => {
-    try {
-      await getChatMessages(chatId);
-    } catch (error) {
-      console.error('Error getting messages:', error)
-    }
+  const handleClick = () => {
+    onSelectChat(chat);
   }
   
   return (
-    <div className='flex' onClick={() => getMessages(chat._id)}>
+    <div className='flex' onClick={() => handleClick()}>
       <div className='item-info-container flex flex-column'>
         <div className='name-title-wrapper flex justify-between'>
           <p className='chat-item-name'>{formatParticipants(chat.participants)}</p>
