@@ -117,3 +117,13 @@ export const getChatMessages = async chatId => {
     throw error
   }
 }
+
+export const sendMessage = async (chatId, content) => {
+  try {
+    const response = await api.post(`${API_URL}/messages`, {chat: chatId, content})
+    return response.data
+  } catch (error) {
+    console.error('Error sending message:', error)
+    throw error
+  }
+}
