@@ -17,6 +17,13 @@ function ChatDetailInput({chat}) {
     }
   }
 
+  const handleKeyDown = e => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      handleSendMessage();
+    }
+  }
+
   return (
     <div className='chat-detail-input-container flex gap-20'>
       <input 
@@ -25,6 +32,7 @@ function ChatDetailInput({chat}) {
         placeholder='Type a message'
         value={message}
         onChange={e => setMessage(e.target.value)}
+        onKeyDown={handleKeyDown}
       />
       {/* Conditionally render the send icon with different colors */}
       <AiOutlineSend onClick={handleSendMessage} className={`input-icon ${message.trim() ? 'send-icon-enabled' : 'send-icon-disabled' }`} />
