@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useAuth } from '../contexts/AuthContext'
 
 function ChatDetailMessages({chat}) {
-  const {getChatMessages, chatMessages} = useAuth()
+  const {getChatMessages, chatMessages, user} = useAuth()
 
   // call get chat messages whenever the chat changes
   useEffect(() => {
@@ -26,6 +26,11 @@ function ChatDetailMessages({chat}) {
       hour12: true, // Use 12-hour format (AM/PM)
     })
   }
+
+
+  /* 
+    if user.username == message.sender.username, then apply the sent-message className to the message-container div. Otherwise, apply received-message className to the message-container div
+  */
 
   return (
     <div className='messages-container flex flex-column gap-10'>
