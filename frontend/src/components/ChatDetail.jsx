@@ -5,7 +5,7 @@ import ChatDetailInput from './ChatDetailInput'
 
 function ChatDetail({chat}) {
   return (
-    <div>
+    <div className='chat-detail-container flex flex-column'>
       <ChatDetailHeader chat={chat} />
       <ChatDetailMessages chat={chat} />
       <ChatDetailInput chat={chat} />
