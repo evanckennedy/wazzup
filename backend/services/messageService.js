@@ -38,16 +38,18 @@ export async function sendMessage(chat, token, content) {
 
 export async function getMessages(chatId) {
   try {
-    // find the chat document by its ID
-  const chat = await Chat.findById(chatId)
-  // Populate the messages field in the chat document with the corresponding Message documents
-    .populate({
-      // Specify the field to populate (messages)
-      path: 'messages',
-      // Specify the model to use for population (Message)
-      model: Message
-    })
-  
+    // Find the chat document by its ID and populate the messages field
+    const chat = await Chat.findById(chatId)
+      .populate({
+        path: 'messages',
+        model: Message,
+        populate: {
+          path: 'sender',
+          model: 'User',
+          select: 'username name _id' // Populate username, name, and _id fields
+        }
+      })
+
   // validate that chat exists
   if(!chat) {
     throw new Error('Chat not found');

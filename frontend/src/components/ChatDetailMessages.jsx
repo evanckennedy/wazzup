@@ -30,10 +30,10 @@ function ChatDetailMessages({chat}) {
   return (
     <div className='messages-container flex flex-column gap-10'>
       {chatMessages.map((message) => (
-        <div className="message-container flex">
-          <div className='message-box flex flex-column' key={message._id}>
+        <div className="message-container flex" key={message._id}>
+          <div className='message-box flex flex-column'>
             <div className="message-header flex">
-              <p>{message.sender}</p>
+              <p>{message.sender.username}</p>
             </div>
             <div className="message-body">
               <p>{message.content}</p>
