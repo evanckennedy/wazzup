@@ -166,17 +166,17 @@ body {
 .chat-container {
   height: 100svh;
   width: 100svw;
-
-  > * {
-    padding: 1rem;
-  }
 }
 .chat-sidebar {
   flex: 1;
   border-right: 1px solid var(--medium-gray);
+  padding: 1rem;
 }
 .chat-window {
   flex: 3;
+  > * {
+    
+  }
 }
 /* ============================================= */
 /* Component: ChatSidebar                        */
@@ -270,6 +270,7 @@ body {
 /* ============================================= */
 .chat-detail-header-container{
   width: 100%;
+  padding: 1rem;
 }
 .chat-detail-header-usernames{
   font-weight: 600;
@@ -279,6 +280,7 @@ body {
 /* ============================================= */
 .messages-container{
   width: 100%;
+  padding: 1rem;
 }
 .message-container{
   width: 100%; 
@@ -323,6 +325,7 @@ body {
 .chat-detail-input-container{
   width: 100%;
   align-items: center;
+  padding: 1rem;
 
   .message-input{
     flex-grow: 1;

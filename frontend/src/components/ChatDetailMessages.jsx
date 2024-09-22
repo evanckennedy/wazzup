@@ -52,7 +52,6 @@ function ChatDetailMessages({chat}) {
             </div>  
           </div>
         </div>
-        
       ))}
     </div>
   )
