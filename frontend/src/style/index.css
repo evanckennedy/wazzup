@@ -277,24 +277,45 @@ body {
 /* ============================================= */
 /* Component: ChatDetailMessages                 */
 /* ============================================= */
+.messages-container{
+  width: 100%;
+}
+.message-container{
+  width: 100%; 
+}
+.received-message{
+  > * {
+    background-color: var(--very-light-green);
+  }
+}
+.sent-message{
+  justify-content: flex-end;
+
+  > * {
+    background-color: var(--light-green);
+  }
+}
 .message-box{
   width: 30rem;
   border-radius: 0.5rem;
-  padding: 0.2rem;
+  padding: 1.2rem;
 }
 .message-header{
   justify-content: flex-start;
+
+  p {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
 }
 .message-footer{
   justify-content: flex-end;
-  font-size: 1.2rem;
-  font-weight: 500;
-}
-.sent-message{
-  background-color: var(--sea-green);
-}
-.received-message{
 
+  p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--mid-dark-gray);
+  } 
 }
 /* ============================================= */
 /* Component: ChatDetailInput                    */
