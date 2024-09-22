@@ -27,7 +27,6 @@ function ChatDetailMessages({chat}) {
     })
   }
 
-
   /* 
     if user.username equals message.sender.username, then apply the sent-message className to the message-container div. Otherwise, apply received-message className to the message-container div
   */
@@ -35,7 +34,7 @@ function ChatDetailMessages({chat}) {
   return (
     <div className='messages-container flex flex-column gap-10'>
       {chatMessages.map((message) => (
-        <div className="message-container flex" key={message._id}>
+      <div className={`message-container flex ${user.username === message.sender.username ? 'sent-message' : 'received-message'}`} key={message._id}>
           <div className='message-box flex flex-column'>
             <div className="message-header flex">
               <p>{message.sender.username}</p>
