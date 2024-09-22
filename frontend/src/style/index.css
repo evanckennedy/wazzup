@@ -271,6 +271,9 @@ body {
 .chat-detail-header-container{
   width: 100%;
 }
+.chat-detail-header-usernames{
+  font-weight: 600;
+}
 /* ============================================= */
 /* Component: ChatDetailInput                    */
 /* ============================================= */
