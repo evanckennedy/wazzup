@@ -275,6 +275,28 @@ body {
   font-weight: 600;
 }
 /* ============================================= */
+/* Component: ChatDetailMessages                 */
+/* ============================================= */
+.message-box{
+  width: 30rem;
+  border-radius: 0.5rem;
+  padding: 0.2rem;
+}
+.message-header{
+  justify-content: flex-start;
+}
+.message-footer{
+  justify-content: flex-end;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.sent-message{
+  background-color: var(--sea-green);
+}
+.received-message{
+
+}
+/* ============================================= */
 /* Component: ChatDetailInput                    */
 /* ============================================= */
 .chat-detail-input-container{

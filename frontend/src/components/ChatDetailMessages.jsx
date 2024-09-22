@@ -37,12 +37,18 @@ function ChatDetailMessages({chat}) {
         users to scroll through the message history
   */ 
   return (
-    <div>
+    <div className='flex flex-column'>
       {chatMessages.map((message) => (
-        <div key={message._id}>
-          <p>{message.sender}</p>
-          <p>{message.content}</p>
-          <p>{formatTime(message.createdAt)}</p>
+        <div className='message-box flex flex-column' key={message._id}>
+          <div className="message-header flex">
+            <p>{message.sender}</p>
+          </div>
+          <div className="message-body">
+            <p>{message.content}</p>
+          </div>
+          <div className="message-footer flex">
+            <p>{formatTime(message.createdAt)}</p>
+          </div>  
         </div>
       ))}
     </div>
