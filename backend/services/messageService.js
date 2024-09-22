@@ -38,15 +38,17 @@ export async function sendMessage(chat, token, content) {
 
 export async function getMessages(chatId) {
   try {
-    // Find the chat document by its ID and populate the messages field
+    // Find the chat document by its ID and fully populate the messages field 
     const chat = await Chat.findById(chatId)
       .populate({
         path: 'messages',
         model: Message,
+
+        // Populate the sender property with username, name, and _id fields
         populate: {
           path: 'sender',
           model: 'User',
-          select: 'username name _id' // Populate username, name, and _id fields
+          select: 'username name _id' 
         }
       })
 
