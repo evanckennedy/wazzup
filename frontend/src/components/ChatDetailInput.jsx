@@ -33,6 +33,7 @@ function ChatDetailInput({chat}) {
         value={message}
         onChange={e => setMessage(e.target.value)}
         onKeyDown={handleKeyDown}
+        maxLength={1000}
       />
       {/* Conditionally render the send icon with different colors */}
       <AiOutlineSend onClick={handleSendMessage} className={`input-icon ${message.trim() ? 'send-icon-enabled' : 'send-icon-disabled' }`} />

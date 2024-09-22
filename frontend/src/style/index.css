@@ -166,14 +166,11 @@ body {
 .chat-container {
   height: 100svh;
   width: 100svw;
-
-  > * {
-    padding: 1rem;
-  }
 }
 .chat-sidebar {
   flex: 1;
   border-right: 1px solid var(--medium-gray);
+  padding: 1rem;
 }
 .chat-window {
   flex: 3;
@@ -226,6 +223,7 @@ body {
 /* ============================================= */
 .item-info-container{
   width: 100%;
+  cursor: pointer;
 }
 .chat-item-message{
   color: var(--mid-dark-gray);
@@ -266,10 +264,67 @@ body {
   }
 }
 /* ============================================= */
+/* Component: ChatDetail                         */
+/* ============================================= */
+.chat-detail-container{
+  height: 100%;
+}
+/* ============================================= */
 /* Component: ChatDetailHeader                   */
 /* ============================================= */
 .chat-detail-header-container{
   width: 100%;
+  padding: 1rem;
+}
+.chat-detail-header-usernames{
+  font-weight: 600;
+}
+/* ============================================= */
+/* Component: ChatDetailMessages                 */
+/* ============================================= */
+.messages-container{
+  flex-grow: 1;
+  overflow-y: auto; /* makes it scrollable */
+  width: 100%;
+  padding: 1rem;
+  background-color: #f5f5f6;
+}
+.message-container{
+  width: 100%; 
+}
+.received-message{
+  > * {
+    background-color: var(--white);
+  }
+}
+.sent-message{
+  justify-content: flex-end;
+
+  > * {
+    background-color: var(--light-green);
+  }
+}
+.message-box{
+  width: 30rem;
+  border-radius: 0.5rem;
+  padding: 1.2rem;
+}
+.message-header{
+  justify-content: flex-start;
+
+  p {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+}
+.message-footer{
+  justify-content: flex-end;
+
+  p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--mid-dark-gray);
+  } 
 }
 /* ============================================= */
 /* Component: ChatDetailInput                    */
@@ -277,6 +332,7 @@ body {
 .chat-detail-input-container{
   width: 100%;
   align-items: center;
+  padding: 1rem;
 
   .message-input{
     flex-grow: 1;

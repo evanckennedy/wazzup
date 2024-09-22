@@ -21,7 +21,7 @@ function ChatDetailHeader({chat}) {
 
   return (
     <div className='chat-detail-header-container flex justify-between'>
-      <p>{formatParticipants(chat.participants)}</p>
+      <p className='chat-detail-header-usernames'>{formatParticipants(chat.participants)}</p>
     </div>
   );
 }
