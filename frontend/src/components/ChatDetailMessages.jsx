@@ -29,7 +29,7 @@ function ChatDetailMessages({chat}) {
 
 
   /* 
-    if user.username == message.sender.username, then apply the sent-message className to the message-container div. Otherwise, apply received-message className to the message-container div
+    if user.username equals message.sender.username, then apply the sent-message className to the message-container div. Otherwise, apply received-message className to the message-container div
   */
 
   return (
