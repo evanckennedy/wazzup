@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useAuth } from '../contexts/AuthContext'
 
 function ChatDetailMessages({chat}) {
-  const {getChatMessages, chatMessages} = useAuth()
+  const {getChatMessages, chatMessages, user} = useAuth()
 
   // call get chat messages whenever the chat changes
   useEffect(() => {
@@ -27,13 +27,17 @@ function ChatDetailMessages({chat}) {
     })
   }
 
+  const getMessageClass = (user, message) => {
+    return user.username === message.sender.username ? 'sent-message' : 'received-message'
+  }
+
   return (
     <div className='messages-container flex flex-column gap-10'>
       {chatMessages.map((message) => (
-        <div className="message-container flex">
-          <div className='message-box flex flex-column' key={message._id}>
+      <div className={`message-container flex ${getMessageClass(user, message)}`} key={message._id}>
+          <div className='message-box flex flex-column'>
             <div className="message-header flex">
-              <p>{message.sender}</p>
+              <p>{message.sender.username}</p>
             </div>
             <div className="message-body">
               <p>{message.content}</p>
@@ -47,7 +51,5 @@ function ChatDetailMessages({chat}) {
     </div>
   )
 }
-
-
 
 export default ChatDetailMessages

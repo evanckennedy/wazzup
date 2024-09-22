@@ -94,7 +94,15 @@ export const AuthProvider = ({ children }) => {
   const sendMessage = async (chatId, content) => {
     try {
       const newMessage = await apiSendMessage(chatId, content)
-      setChatMessages((prevMessages) => [...prevMessages, newMessage])
+      const populatedMessage = {
+        ...newMessage,
+        sender: {
+          _id: user._id,
+          username: user.username,
+          name: user.name,
+        },
+      };
+      setChatMessages((prevMessages) => [...prevMessages, populatedMessage])
     } catch (error) {
       console.error('Error sending message:', error);
       throw error;
