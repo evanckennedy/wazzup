@@ -223,6 +223,7 @@ body {
 /* ============================================= */
 .item-info-container{
   width: 100%;
+  cursor: pointer;
 }
 .chat-item-message{
   color: var(--mid-dark-gray);
