@@ -281,13 +281,14 @@ body {
 .messages-container{
   width: 100%;
   padding: 1rem;
+  background-color: #f5f5f6;
 }
 .message-container{
   width: 100%; 
 }
 .received-message{
   > * {
-    background-color: var(--very-light-green);
+    background-color: var(--white);
   }
 }
 .sent-message{
