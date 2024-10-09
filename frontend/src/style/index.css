@@ -46,6 +46,7 @@
   --deep-teal: #054640;
   --forest-green: #005d4b;
   --sea-green: #06625f;
+  --super-light-gray: #f5f5f6;
   --light-gray: #bbb;
   --medium-gray: #aaa;
   --mid-dark-gray: #777;
@@ -170,7 +171,7 @@ body {
 .chat-sidebar {
   flex: 1;
   border-right: 1px solid var(--medium-gray);
-  padding: 1rem;
+  /* padding: 1rem; */
 }
 .chat-window {
   flex: 3;
@@ -189,7 +190,11 @@ body {
   font-size: 2.2rem;
 }
 .sidebar-user-info{
+  padding: 1rem 1rem 0 1rem;
   border-bottom: 2px solid var(--medium-gray);
+}
+.sidebar-create-btn-container{
+  padding: 0 1rem ;
 }
 .sidebar-create-btn{
   width: 100%;
@@ -206,6 +211,7 @@ body {
 /* ============================================= */
 .sidebar-header-container {
   align-items: center;
+  padding: 0 1rem;
 
   button{
     background-color: transparent;
@@ -233,6 +239,11 @@ body {
 .item-info-container{
   width: 100%;
   cursor: pointer;
+  padding: 0.4rem 1rem;
+
+  &:hover{
+    background-color: var(--super-light-gray);
+  }
 }
 .chat-item-message{
   color: var(--mid-dark-gray);
@@ -248,9 +259,6 @@ body {
 }
 .chat-item-time{
   color: var(--mid-dark-gray);
-}
-.item-info-container{
-  padding: 0.4rem 0;
 }
 /* ============================================= */
 /* Component: ContactItem                        */
@@ -296,7 +304,7 @@ body {
   overflow-y: auto; /* makes it scrollable */
   width: 100%;
   padding: 1rem;
-  background-color: #f5f5f6;
+  background-color: var(--super-light-gray);
 }
 .message-container{
   width: 100%; 
@@ -361,7 +369,6 @@ body {
     cursor: not-allowed;
   }
 }
-
 /* ============================================= */
 /* Component: CreateChatModal/CreateContactModal */
 /* ============================================= */
