@@ -191,19 +191,28 @@ body {
 .sidebar-user-info{
   border-bottom: 2px solid var(--medium-gray);
 }
+.sidebar-create-btn{
+  width: 100%;
+  font-size: 1.8rem;
+  height: 4rem;
+  font-weight: 500;
+  background-color: var(--sea-green);
+  color: var(--white);
+  margin: 1.5rem 0;
+}
+
 /* ============================================= */
 /* Component: ChatSidebarHeader                  */
 /* ============================================= */
 .sidebar-header-container {
   align-items: center;
 
-  button {
+  button{
     background-color: transparent;
     font-size: 2rem;
     font-weight: 600;
   }
-
-  .active {
+  .active{
     color: var(--sea-green);
     text-decoration: underline;
   }
@@ -354,7 +363,7 @@ body {
 }
 
 /* ============================================= */
-/* Component: CreateChatModal                    */
+/* Component: CreateChatModal/CreateContactModal */
 /* ============================================= */
 .modal-backdrop{
   position: fixed;
@@ -387,7 +396,7 @@ body {
   color: var(--white);
 }
 .modal-create-btn{
-  background-color: var(--forest-green);
+  background-color: var(--sea-green);
 }
 .modal-cancel-btn{
   background-color: var(--error-red);

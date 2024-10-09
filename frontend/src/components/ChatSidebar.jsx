@@ -43,13 +43,13 @@ function ChatSidebar({chats, contacts, onSelectChat }) {
       <ChatSidebarHeader selectedTab={selectedTab} handleTabClick={handleTabClick}/>
       {selectedTab === 'chats' ? (
         <>
-          <button onClick={() => setIsChatModalOpen(true)}>Create Chat</button>
+          <button onClick={() => setIsChatModalOpen(true)} className='sidebar-create-btn '>Create Chat</button>
           <ChatList chats={chats} onSelectChat={onSelectChat}/>
           <CreateChatModal isOpen={isChatModalOpen} onClose={() => setIsChatModalOpen(false)}/>
         </>
       ) : (
         <>
-          <button onClick={() => setIsContactModalOpen(true)}>Create Contact</button>
+          <button onClick={() => setIsContactModalOpen(true)} className='sidebar-create-btn'>Create Contact</button>
           <ContactList contacts={contacts} />
           <CreateContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)}/>
         </>
