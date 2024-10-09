@@ -32,22 +32,24 @@ function CreateChatModal({ isOpen, onClose}) {
   }
 
   return (
-    <div>
-      <div>
+    <div className='modal-backdrop'>
+      <div className='modal'>
         <h2>Create Chat</h2>
         <form onSubmit={handleSubmit}>
           {contacts.map(contact => (
-            <div key={contact._id}>
+            <div key={contact._id} className='flex gap-20'>
               <input 
                 type="checkbox"
                 value={contact.contactId._id}
                 onChange={handleContactChange} 
               />
-              {contact.contactId.username}
+              <p className='create-modal-text'>{contact.contactId.username}</p>
             </div>
           ))}
-          <button type='submit'>Create</button>
-          <button type='button' onClick={onClose}>Cancel</button>
+          <div className='flex justify-between gap-20 modal-btns-container'>
+            <button type='submit' className='modal-btn modal-create-btn'>Create</button>
+            <button type='button' className='modal-btn modal-cancel-btn' onClick={onClose}>Cancel</button>
+          </div>   
         </form>
       </div>
     </div>
