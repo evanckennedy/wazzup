@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useAuth } from '../contexts/AuthContext'
 
 function ChatDetailMessages({chat}) {
   const {getChatMessages, chatMessages, user} = useAuth()
+  const messagesEndRef = useRef(null);
 
   // call get chat messages whenever the chat changes
   useEffect(() => {
@@ -14,6 +15,15 @@ function ChatDetailMessages({chat}) {
     
     fetchMessages();
   }, [chat])
+
+  // Scroll to the bottom of the messages container
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    scrollToBottom(); // Scroll to bottom whenever chatMessages change
+  }, [chatMessages]);
 
   const formatTime = time => {
     // Create a new Date object from the provided time
@@ -48,6 +58,7 @@ function ChatDetailMessages({chat}) {
           </div>
         </div>
       ))}
+      <div ref={messagesEndRef} />
     </div>
   )
 }
