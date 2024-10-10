@@ -46,6 +46,7 @@
   --deep-teal: #054640;
   --forest-green: #005d4b;
   --sea-green: #06625f;
+  --super-light-gray: #f5f5f6;
   --light-gray: #bbb;
   --medium-gray: #aaa;
   --mid-dark-gray: #777;
@@ -170,7 +171,9 @@ body {
 .chat-sidebar {
   flex: 1;
   border-right: 1px solid var(--medium-gray);
-  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  /* padding: 1rem; */
 }
 .chat-window {
   flex: 3;
@@ -178,6 +181,14 @@ body {
 /* ============================================= */
 /* Component: ChatSidebar                        */
 /* ============================================= */
+.your-id{
+  span:first-of-type{
+    font-weight: 400;
+  }
+  span:nth-of-type(2){
+    color: var(--mid-dark-gray)
+  }
+}
 .logout-btn{
   background-color: transparent;
   font-weight: 600;
@@ -189,21 +200,30 @@ body {
   font-size: 2.2rem;
 }
 .sidebar-user-info{
+  padding: 1rem 1rem 0 1rem;
   border-bottom: 2px solid var(--medium-gray);
+}
+.sidebar-create-btn{
+  width: 100%;
+  font-size: 1.8rem;
+  height: 4rem;
+  font-weight: 500;
+  background-color: var(--sea-green);
+  color: var(--white);
 }
 /* ============================================= */
 /* Component: ChatSidebarHeader                  */
 /* ============================================= */
 .sidebar-header-container {
   align-items: center;
+  padding: 0 1rem;
 
-  button {
+  button{
     background-color: transparent;
     font-size: 2rem;
     font-weight: 600;
   }
-
-  .active {
+  .active{
     color: var(--sea-green);
     text-decoration: underline;
   }
@@ -212,11 +232,11 @@ body {
 /* Component: ChatList                           */
 /* ============================================= */
 .chat-list-container{
+  flex-grow: 1;
   overflow-y: auto;
-
-  > * {
-    margin-bottom: 1rem;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 /* ============================================= */
 /* Component: ChatItem                           */
@@ -224,6 +244,11 @@ body {
 .item-info-container{
   width: 100%;
   cursor: pointer;
+  padding: 0.4rem 1rem;
+
+  &:hover{
+    background-color: var(--super-light-gray);
+  }
 }
 .chat-item-message{
   color: var(--mid-dark-gray);
@@ -240,17 +265,30 @@ body {
 .chat-item-time{
   color: var(--mid-dark-gray);
 }
-.item-info-container{
-  padding: 0.4rem 0;
+/* ============================================= */
+/* Component: ContactList                        */
+/* ============================================= */
+.contact-list-container{
+  flex-grow: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 /* ============================================= */
 /* Component: ContactItem                        */
 /* ============================================= */
 .delete-contact-btn{
   background-color: transparent;
+
+  &:hover{
+    *{
+      color: var(--error-red);
+    }
+  }
 }
 .contact-username{
-  font-weight: 500;
+  font-weight: 600;
 }
 /* ============================================= */
 /* Component: DefaultChatView                    */
@@ -287,7 +325,7 @@ body {
   overflow-y: auto; /* makes it scrollable */
   width: 100%;
   padding: 1rem;
-  background-color: #f5f5f6;
+  background-color: var(--super-light-gray);
 }
 .message-container{
   width: 100%; 
@@ -351,4 +389,53 @@ body {
     color: var(--mid-dark-gray);
     cursor: not-allowed;
   }
+}
+/* ============================================= */
+/* Component: CreateChatModal/CreateContactModal */
+/* ============================================= */
+.modal-backdrop{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Darken the background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure the modal is on top */
+}
+.modal{
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1001; /* Ensure the modal content is on top of the backdrop */
+
+  h2{
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+}
+.modal-btn{
+  padding: 0.5rem 1.4rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  color: var(--white);
+}
+.modal-create-btn{
+  background-color: var(--sea-green);
+}
+.modal-cancel-btn{
+  background-color: var(--error-red);
+}
+.modal-btns-container{
+  margin-top: 2rem;
+}
+.create-modal-input{
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid black;
+  padding: 0.7rem;
+  text-align: center;
 }

@@ -38,19 +38,22 @@ function ChatSidebar({chats, contacts, onSelectChat }) {
           <h2 className='welcome-message'>Hi, {getFirstName(user)}</h2>
           <LogoutButton />
         </div>
-        <p>Your ID: {user._id}</p>
+        <p className='your-id'>
+          <span>Your ID: </span>
+          <span>{user._id}</span>
+        </p>
       </div>
       <ChatSidebarHeader selectedTab={selectedTab} handleTabClick={handleTabClick}/>
       {selectedTab === 'chats' ? (
-        <>
-          <button onClick={() => setIsChatModalOpen(true)}>Create Chat</button>
+        <>   
           <ChatList chats={chats} onSelectChat={onSelectChat}/>
+          <button onClick={() => setIsChatModalOpen(true)} className='sidebar-create-btn'>Create Chat</button>
           <CreateChatModal isOpen={isChatModalOpen} onClose={() => setIsChatModalOpen(false)}/>
         </>
       ) : (
         <>
-          <button onClick={() => setIsContactModalOpen(true)}>Create Contact</button>
           <ContactList contacts={contacts} />
+          <button onClick={() => setIsContactModalOpen(true)} className='sidebar-create-btn'>Create Contact</button>
           <CreateContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)}/>
         </>
       )}

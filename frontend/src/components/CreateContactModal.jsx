@@ -21,20 +21,23 @@ function CreateContactModal({isOpen, onClose}) {
   }
 
   return (
-    <div>
-      <div>
+    <div className='modal-backdrop'>
+      <div className='modal'>
         <h2>Create Contact</h2>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="contactId">Contact ID:</label>
+          {/* <label htmlFor="contactId">Contact ID:</label> */}
           <input 
+            className='create-modal-input'
             type="text" 
             id='contactId' 
             placeholder="Enter your contact's id" 
             value={contactId}
             onChange={e => setContactId(e.target.value)}
-            />
-          <button type='submit'>Create</button>
-          <button type='button' onClick={onClose}>Cancel</button>
+          />
+          <div className='flex justify-between gap-20 modal-btns-container'>
+            <button type='submit' className='modal-btn modal-create-btn'>Create</button>
+            <button type='button' className='modal-btn modal-cancel-btn' onClick={onClose}>Cancel</button>
+          </div>
         </form>
       </div>
     </div>
