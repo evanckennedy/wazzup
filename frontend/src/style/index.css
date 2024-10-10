@@ -171,6 +171,8 @@ body {
 .chat-sidebar {
   flex: 1;
   border-right: 1px solid var(--medium-gray);
+  display: flex;
+  flex-direction: column;
   /* padding: 1rem; */
 }
 .chat-window {
@@ -227,6 +229,7 @@ body {
 /* Component: ChatList                           */
 /* ============================================= */
 .chat-list-container{
+  flex-grow: 1;
   overflow-y: auto;
 
   > * {
@@ -261,13 +264,29 @@ body {
   color: var(--mid-dark-gray);
 }
 /* ============================================= */
+/* Component: ContactList                        */
+/* ============================================= */
+.contact-list-container{
+  flex-grow: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+/* ============================================= */
 /* Component: ContactItem                        */
 /* ============================================= */
 .delete-contact-btn{
   background-color: transparent;
+
+  &:hover{
+    *{
+      color: var(--error-red);
+    }
+  }
 }
 .contact-username{
-  font-weight: 500;
+  font-weight: 600;
 }
 /* ============================================= */
 /* Component: DefaultChatView                    */

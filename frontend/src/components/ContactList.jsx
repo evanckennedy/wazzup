@@ -3,7 +3,7 @@ import ContactItem from './ContactItem'
 
 function ContactList({contacts}) {
   return (
-    <ul>
+    <ul className='contact-list-container'>
       {contacts.map(contact => (
         <ContactItem key={contact._id} contact={contact}/>
       ))}
