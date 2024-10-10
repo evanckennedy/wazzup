@@ -181,6 +181,14 @@ body {
 /* ============================================= */
 /* Component: ChatSidebar                        */
 /* ============================================= */
+.your-id{
+  span:first-of-type{
+    font-weight: 400;
+  }
+  span:nth-of-type(2){
+    color: var(--mid-dark-gray)
+  }
+}
 .logout-btn{
   background-color: transparent;
   font-weight: 600;

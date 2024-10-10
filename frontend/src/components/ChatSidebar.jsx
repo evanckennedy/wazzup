@@ -38,7 +38,10 @@ function ChatSidebar({chats, contacts, onSelectChat }) {
           <h2 className='welcome-message'>Hi, {getFirstName(user)}</h2>
           <LogoutButton />
         </div>
-        <p>Your ID: {user._id}</p>
+        <p className='your-id'>
+          <span>Your ID: </span>
+          <span>{user._id}</span>
+        </p>
       </div>
       <ChatSidebarHeader selectedTab={selectedTab} handleTabClick={handleTabClick}/>
       {selectedTab === 'chats' ? (
