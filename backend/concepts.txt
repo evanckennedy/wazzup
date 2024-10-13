@@ -76,3 +76,11 @@ React Context
     having to pass it down through props.
   - The useContext hook in React is used to access the value of a context 
     (like AuthContext) in a functional component.
+
+WebSockets
+  - What it is: WebSockets is a protocol that allows for full-duplex communication between a client (like a web browser) and a server. This means that both sides can send and receive messages at any time without the need to constantly establish new connections.
+  - Why use it: It’s ideal for applications that require real-time updates, like chat apps, online gaming, or collaborative tools.
+
+Socket.IO
+  - What it is: Socket.IO is a JavaScript library that provides a convenient way to use WebSockets. It makes it easier to work with real-time communication by providing a simple API for both server-side and client-side.
+  
