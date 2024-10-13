@@ -1,15 +1,17 @@
-import React from 'react'
-import DefaultChatView from './DefaultChatView'
-import ChatDetail from './ChatDetail'
+import React, { useEffect } from 'react';
+import DefaultChatView from './DefaultChatView';
+import ChatDetail from './ChatDetail';
+import { useAuth } from '../contexts/AuthContext';
 
-function ChatWindow({selectedChat}) {
+function ChatWindow({ selectedChat }) {
+  const { socket } = useAuth();
 
-     /* 
-     To do: 
-      - render ChatDetail component if the user selects a chat, and pass the 
-        selected chat's details as a prop down to the ChatDetailMessages component
-        and the ChatDetailHeader component to display the correct name and avatar 
-      */
+  useEffect(() => {
+    if (selectedChat && socket) {
+      socket.emit('joinChat', selectedChat._id);
+    }
+  }, [selectedChat, socket]);
+
   return (
     <div className='chat-window'>
       {selectedChat ? (
@@ -18,7 +20,7 @@ function ChatWindow({selectedChat}) {
         <DefaultChatView />
       )}
     </div>
-  )
+  );
 }
 
-export default ChatWindow
+export default ChatWindow;

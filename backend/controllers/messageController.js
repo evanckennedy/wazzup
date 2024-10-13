@@ -1,4 +1,5 @@
 import { sendMessage, getMessages } from "../services/messageService.js";
+import { io } from '../server.js';
 
 export async function handleSendMessage(req, res) {
   try {
@@ -15,6 +16,9 @@ export async function handleSendMessage(req, res) {
     }
 
     const message = await sendMessage(chat, token, content)
+
+    // Emit the message to the chat room
+    io.to(chat).emit('receiveMessage', message);
 
     res.status(201).json(message)
   } catch (error) {
