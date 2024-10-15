@@ -17,12 +17,39 @@ export const AuthProvider = ({ children }) => {
     if (token) {
       const newSocket = io('http://localhost:5000', {
         query: { token }
-      }); // Adjust the URL as needed
+      });
       setSocket(newSocket);
+      console.log('Socket connected:', newSocket);
 
       return () => newSocket.close();
     }
   }, [token]);
+
+  useEffect(() => {
+    if (socket) {
+      console.log('Setting up socket listeners');
+      socket.on('receiveMessage', (message) => {
+        setChatMessages((prevMessages) => [...prevMessages, message]);
+      });
+
+      return () => {
+        socket.off('receiveMessage');
+      };
+    }
+  }, [socket]);
+
+  // Polling to fetch latest chats every 2 seconds
+  useEffect(() => {
+    const fetchChats = async () => {
+      const updatedChats = await getUserChats();
+      setChats(updatedChats);
+    };
+
+    fetchChats(); // Initial fetch
+    const intervalId = setInterval(fetchChats, 2000); // Fetch every 2 seconds
+
+    return () => clearInterval(intervalId); // Cleanup interval on unmount
+  }, []);
 
   const saveToken = newToken => {
     sessionStorage.setItem('token', newToken);
@@ -124,18 +151,6 @@ export const AuthProvider = ({ children }) => {
       fetchUserData();
     }
   }, [token]);
-
-  useEffect(() => {
-    if (socket) {
-      socket.on('receiveMessage', (message) => {
-        setChatMessages((prevMessages) => [...prevMessages, message]);
-      });
-
-      return () => {
-        socket.off('receiveMessage');
-      };
-    }
-  }, [socket]);
 
   return (
     <AuthContext.Provider value={{ token, saveToken, clearToken, logout, contacts, user, chats, chatMessages, createContact, createChat, deleteContact, getChatMessages, sendMessage }}>
