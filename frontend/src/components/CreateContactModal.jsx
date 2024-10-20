@@ -22,7 +22,7 @@ function CreateContactModal({isOpen, onClose}) {
 
   return (
     <div className='modal-backdrop'>
-      <div className='modal'>
+      <div className='modal create-contact-modal'>
         <h2>Create Contact</h2>
         <form onSubmit={handleSubmit}>
           {/* <label htmlFor="contactId">Contact ID:</label> */}
@@ -30,7 +30,7 @@ function CreateContactModal({isOpen, onClose}) {
             className='create-modal-input'
             type="text" 
             id='contactId' 
-            placeholder="Enter your contact's id" 
+            placeholder="Enter your contact's ID" 
             value={contactId}
             onChange={e => setContactId(e.target.value)}
           />

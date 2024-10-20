@@ -40,10 +40,16 @@ function CreateChatModal({ isOpen, onClose}) {
             <div key={contact._id} className='flex gap-20'>
               <input 
                 type="checkbox"
+                id={`contact-${contact.contactId._id}`}
                 value={contact.contactId._id}
                 onChange={handleContactChange} 
               />
-              <p className='create-modal-text'>{contact.contactId.username}</p>
+              <label 
+                htmlFor={`contact-${contact.contactId._id}`}
+                className='create-modal-text create-contact-modal-text'
+              >
+                {contact.contactId.username}
+              </label>
             </div>
           ))}
           <div className='flex justify-between gap-20 modal-btns-container'>
