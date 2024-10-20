@@ -2,6 +2,10 @@
 
 WazzUp is a WhatsApp-inspired messaging app created with MongoDB, Mongoose, Express, React, Node.js, and Socket.IO. It allows users to sign up or log in, add new contacts, create chats, and message people in real-time.
 
+## Demo
+
+Check out the [video demo](https://www.youtube.com/watch?v=PdVw9rkd6Qw) to see WazzUp in action!
+
 ## Features
 
 - **Real-Time Chatting**: Powered by Socket.IO for instant communication.
