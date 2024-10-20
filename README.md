@@ -13,6 +13,7 @@ Check out the [video demo](https://www.youtube.com/watch?v=PdVw9rkd6Qw) to see W
 - **Contact Management**: Add and manage contacts.
 - **Chat Creation**: Create new chats with selected contacts.
 - **Messaging**: Send and receive messages in real-time.
+- **RESTful APIs**: Manage user authentication, contacts, chats, and messages.
 
 ## Tech Stack
 
