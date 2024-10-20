@@ -80,6 +80,7 @@ WazzUp is a WhatsApp-inspired messaging app created with MongoDB, Mongoose, Expr
 - Display error messages in the UI if the username or password is invalid.
 - Prevent auto-scrolling to the bottom of the chat when a new message is received if the user is not already at the bottom of the chat.
 - Improve responsiveness to ensure the application looks and functions well on mobile devices.
+- Ensure that the most recently added or updated chat appears at the top of the chat list.
 
 ### Known Issues
 
