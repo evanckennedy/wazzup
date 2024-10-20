@@ -1,63 +1,99 @@
-import React, { createContext, useContext, useEffect, useState } from 'react'
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { io } from 'socket.io-client';
 import { getUserDetails, getUserContacts, getUserChats, createChat as apiCreateChat, createContact as apiCreateContact, deleteContact as apiDeleteContact, getChatMessages as apiGetChatMessages, sendMessage as apiSendMessage } from '../services/api';
 
-// Create a context for authentication
-const AuthContext = createContext()
-
-// Custom hook to easily access the AuthContext in any component
+const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
 
-// AuthProvider component to wrap the entire app
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(sessionStorage.getItem('token'));
-  const [user, setUser] = useState(null)
-  const [contacts, setContacts] = useState([])
-  const [chats, setChats] = useState(null)
-  const [chatMessages, setChatMessages] = useState([])
+  const [user, setUser] = useState(null);
+  const [contacts, setContacts] = useState([]);
+  const [chats, setChats] = useState(null);
+  const [chatMessages, setChatMessages] = useState([]);
+  const [socket, setSocket] = useState(null);
+
+  useEffect(() => {
+    if (token) {
+      const newSocket = io('http://localhost:5000', {
+        query: { token }
+      });
+      setSocket(newSocket);
+      console.log('Socket connected:', newSocket);
+
+      return () => newSocket.close();
+    }
+  }, [token]);
+
+  useEffect(() => {
+    if (socket) {
+      console.log('Setting up socket listeners');
+      socket.on('receiveMessage', (message) => {
+        setChatMessages((prevMessages) => [...prevMessages, message]);
+      });
+
+      return () => {
+        socket.off('receiveMessage');
+      };
+    }
+  }, [socket]);
+
+  // Polling to fetch latest chats every 2 seconds
+  useEffect(() => {
+    const fetchChats = async () => {
+      const updatedChats = await getUserChats();
+      setChats(updatedChats);
+    };
+
+    fetchChats(); // Initial fetch
+    const intervalId = setInterval(fetchChats, 2000); // Fetch every 2 seconds
+
+    return () => clearInterval(intervalId); // Cleanup interval on unmount
+  }, []);
 
   const saveToken = newToken => {
-    sessionStorage.setItem('token', newToken)
-    setToken(newToken)
-    window.location.href = '/chat'
-  }
+    sessionStorage.setItem('token', newToken);
+    setToken(newToken);
+    window.location.href = '/chat';
+  };
 
   const clearToken = () => {
     sessionStorage.removeItem('token');
     setToken('');
-  }
+  };
 
   const logout = () => {
     clearToken();
-    setUser(null)
-    setContacts([])
-    setChats(null)
-    window.location.href = '/'
-  }
+    setUser(null);
+    setContacts([]);
+    setChats(null);
+    window.location.href = '/';
+  };
 
   const fetchUserData = async () => {
     try {
-      const userDetails = await getUserDetails()
-      const userContacts = await getUserContacts()
-      const userChats = await getUserChats()
-      setUser(userDetails)
-      setContacts(userContacts)
-      setChats(userChats)
+      const userDetails = await getUserDetails();
+      const userContacts = await getUserContacts();
+      const userChats = await getUserChats();
+      setUser(userDetails);
+      setContacts(userContacts);
+      setChats(userChats);
     } catch (error) {
-      console.log('Error fetching user details', error)
-      logout()
+      console.log('Error fetching user details', error);
+      logout();
     }
-  }
+  };
 
   const createContact = async contact => {
     try {
-      await apiCreateContact(contact)
+      await apiCreateContact(contact);
       const updatedContacts = await getUserContacts();
-      setContacts(updatedContacts)
+      setContacts(updatedContacts);
     } catch (error) {
-      console.error('Error creating contact:', error)
-      throw error
+      console.error('Error creating contact:', error);
+      throw error;
     }
-  }
+  };
 
   const deleteContact = async contactId => {
     try {
@@ -65,35 +101,35 @@ export const AuthProvider = ({ children }) => {
       const updatedContacts = await getUserContacts();
       setContacts(updatedContacts);
     } catch (error) {
-      console.error('Error creating chat:', error)
-      throw error
+      console.error('Error creating chat:', error);
+      throw error;
     }
-  }
+  };
 
   const createChat = async participants => {
     try {
-      await apiCreateChat(participants)
-      const updatedChats = await getUserChats()
-      setChats(updatedChats)
+      await apiCreateChat(participants);
+      const updatedChats = await getUserChats();
+      setChats(updatedChats);
     } catch (error) {
-      console.error('Error creating chat:', error)
-      throw error
+      console.error('Error creating chat:', error);
+      throw error;
     }
-  }
+  };
 
   const getChatMessages = async chatId => {
     try {
-      const chatMessages = await apiGetChatMessages(chatId)
-      setChatMessages(chatMessages)
+      const chatMessages = await apiGetChatMessages(chatId);
+      setChatMessages(chatMessages);
     } catch (error) {
-      console.error('Error getting chat messages:', error)
-      throw error
+      console.error('Error getting chat messages:', error);
+      throw error;
     }
-  }
+  };
 
   const sendMessage = async (chatId, content) => {
     try {
-      const newMessage = await apiSendMessage(chatId, content)
+      const newMessage = await apiSendMessage(chatId, content);
       const populatedMessage = {
         ...newMessage,
         sender: {
@@ -102,48 +138,23 @@ export const AuthProvider = ({ children }) => {
           name: user.name,
         },
       };
-      setChatMessages((prevMessages) => [...prevMessages, populatedMessage])
+      setChatMessages((prevMessages) => [...prevMessages, populatedMessage]);
+      socket.emit('sendMessage', populatedMessage); // Emit the message to the server
     } catch (error) {
       console.error('Error sending message:', error);
       throw error;
     }
-  }
+  };
 
   useEffect(() => {
     if (token) {
-      fetchUserData()
+      fetchUserData();
     }
-  }, [token])
-
-  // debugging use effect hooks. Delete later
-  useEffect(() => {
-    if (user) {
-      console.log('User:', user)
-    }
-  }, [user])
-  useEffect(() => {
-    if (contacts && contacts.length > 0) {
-      console.log('Contacts', contacts)
-    }
-  }, [contacts])
-  useEffect(() => {
-    if (chats) {
-      console.log('Chats:', chats)
-    }
-  }, [chats])
-  useEffect(() => {
-    if (chatMessages) {
-      console.log('Chat messages:', chatMessages)
-    }
-  }, [chatMessages])
+  }, [token]);
 
   return (
-    // <AuthContext.Provider> holds the authentication data
     <AuthContext.Provider value={{ token, saveToken, clearToken, logout, contacts, user, chats, chatMessages, createContact, createChat, deleteContact, getChatMessages, sendMessage }}>
-      {/* the children prop is being rendered inside the context provider.
-          this means that any components wrapped by the AuthProvider will have access to the authentication context
-      */}
-      {children} 
+      {children}
     </AuthContext.Provider>
-  )
-}
+  );
+};
