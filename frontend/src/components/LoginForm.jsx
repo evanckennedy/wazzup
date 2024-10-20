@@ -17,14 +17,12 @@ function LoginForm() {
     setErrors({}); // Reset errors before validation
     const newErrors = validate({username, password});
     setErrors(newErrors);
-    console.log('Form submitted with:', { username, password }); // Debugging line
     if (Object.keys(newErrors).length === 0) {
       const userData = { username, password }
       try {
         // call loginUser with userData
         const response = await loginUser(userData)
         saveToken(response.token);
-        console.log('User logged in successfully:', response)
       } catch (error) {
         console.error('Error logging in user:', error);
       }

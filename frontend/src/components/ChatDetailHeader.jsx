@@ -14,11 +14,6 @@ function ChatDetailHeader({chat}) {
     return usernames.join(', ')
   }
 
-  // debugging. remove later
-  useEffect(() => {
-    console.log("chat stuff:", chat)
-  }, [chat])
-
   return (
     <div className='chat-detail-header-container flex justify-between'>
       <p className='chat-detail-header-usernames'>{formatParticipants(chat.participants)}</p>

@@ -14,7 +14,6 @@ function CreateChatModal({ isOpen, onClose}) {
       await createChat({ participants: selectedContacts })
       onClose();
       setSelectedContacts([])
-      console.log('successfully created chat')
     } catch (error) {
       console.error('Error creating chat:', error)
     }
