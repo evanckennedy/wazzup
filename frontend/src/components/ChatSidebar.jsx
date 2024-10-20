@@ -28,7 +28,7 @@ function ChatSidebar({chats, contacts, onSelectChat }) {
   }
 
   if (!user) {
-    return <div>Loading...</div>; // or any loading indicator
+    return <div className='chat-sidebar'></div>; // Return an empty div with the same class
   }
 
   return (
