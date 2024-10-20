@@ -439,3 +439,12 @@ body {
   padding: 0.7rem;
   text-align: center;
 }
+/* ============================================= */
+/* Component: CreateContactModal */
+/* ============================================= */
+.create-contact-modal{
+  width: 26rem;
+}
+.create-contact-modal-text{
+  padding-bottom: 0.3rem;
+}
