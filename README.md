@@ -16,7 +16,7 @@ Check out the [video demo](https://www.youtube.com/watch?v=PdVw9rkd6Qw) to see W
 
 ## Tech Stack
 
-- **Frontend**: React
+- **Frontend**: React, CSS
 - **Backend**: Node.js, Express
 - **Database**: MongoDB, Mongoose
 - **Real-Time Communication**: Socket.IO
