@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState, useRef } from 'react';
 import { io } from 'socket.io-client';
 import { getUserDetails, getUserContacts, getUserChats, createChat as apiCreateChat, createContact as apiCreateContact, deleteContact as apiDeleteContact, getChatMessages as apiGetChatMessages, sendMessage as apiSendMessage } from '../services/api';
 
@@ -12,6 +12,7 @@ export const AuthProvider = ({ children }) => {
   const [chats, setChats] = useState(null);
   const [chatMessages, setChatMessages] = useState([]);
   const [socket, setSocket] = useState(null);
+  const isUserMessageRef = useRef(false);
 
   useEffect(() => {
     if (token) {
@@ -32,24 +33,18 @@ export const AuthProvider = ({ children }) => {
         setChatMessages((prevMessages) => [...prevMessages, message]);
       });
 
+      socket.on('chatUpdated', async () => {
+        console.log('chatUpdated event received');
+        const updatedChats = await getUserChats();
+        setChats(updatedChats);
+      });
+
       return () => {
         socket.off('receiveMessage');
+        socket.off('chatUpdated');
       };
     }
   }, [socket]);
-
-  // Polling to fetch latest chats every 2 seconds
-  useEffect(() => {
-    const fetchChats = async () => {
-      const updatedChats = await getUserChats();
-      setChats(updatedChats);
-    };
-
-    fetchChats(); // Initial fetch
-    const intervalId = setInterval(fetchChats, 2000); // Fetch every 2 seconds
-
-    return () => clearInterval(intervalId); // Cleanup interval on unmount
-  }, []);
 
   const saveToken = newToken => {
     sessionStorage.setItem('token', newToken);
@@ -140,6 +135,7 @@ export const AuthProvider = ({ children }) => {
       };
       setChatMessages((prevMessages) => [...prevMessages, populatedMessage]);
       socket.emit('sendMessage', populatedMessage); // Emit the message to the server
+      isUserMessageRef.current = true; // Set the flag when the user sends a message
     } catch (error) {
       console.error('Error sending message:', error);
       throw error;
